@@ -4,7 +4,7 @@
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+[Daniel Frenzel Zarza, y usuario GitHub de los integrantes del equipo.]
 
 ## Objetivos del trabajo
 
