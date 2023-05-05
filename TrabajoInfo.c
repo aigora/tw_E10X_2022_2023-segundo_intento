@@ -59,7 +59,7 @@ int main()
 								max1=maximo(hidrau);
 								printf("El maximo es %f\n",max1);
 								scanf("  %c",&num3);
-								if(num3=='a'|| num3=='A')
+								if(num3=='A'|| num3=='A')
 								{
 									system("cls");
 									num=='1';
