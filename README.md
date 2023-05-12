@@ -1,10 +1,13 @@
 # [Título del trabajo]
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
+[]
 
 ## Integrantes del equipo
 
-[Daniel Frenzel Zarza, y usuario GitHub de los integrantes del equipo.]
+[David Arnaiz Antón  (@Arnaiz13)
+Daniel Frenzel Zarza  (@d.frenzel)
+Ángel Canosa Sánchez  (@angel.canosa)
+Emilio Rodríguez Sáenz de Tejada  (@emilio.rodriguez)]
 
 ## Objetivos del trabajo
 
