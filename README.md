@@ -4,10 +4,13 @@
 
 ## Integrantes del equipo
 
-[David Arnaiz Antón  (@Arnaiz13)
+David Arnaiz Antón  (@Arnaiz13)
+
 Daniel Frenzel Zarza  (@d.frenzel)
+
 Ángel Canosa Sánchez  (@angel.canosa)
-Emilio Rodríguez Sáenz de Tejada  (@emilio.rodriguez)]
+
+Emilio Rodríguez Sáenz de Tejada  (@emilio.rodriguez)
 
 ## Objetivos del trabajo
 
