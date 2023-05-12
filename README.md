@@ -1,6 +1,6 @@
 # [Título del trabajo]
 
-[]
+
 
 ## Integrantes del equipo
 
@@ -14,4 +14,13 @@ Emilio Rodríguez Sáenz de Tejada  (@emilio.rodriguez)
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+Los objetivos principales del trabajo son los siguientes:
+
+    -Estudio y uso de vectores de estructuras.
+
+    -Estudio y uso de ficheros.
+
+    -Estudio y uso de funciones.
+
+    -Estudio y uso de cabeceras.
+
