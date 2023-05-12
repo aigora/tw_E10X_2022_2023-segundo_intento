@@ -1,11 +1,12 @@
 #include<stdio.h>
 
 float  maximo(float vector[11]);
+float promedio(float vector[11]);
 int main()
 {
 	int comunidad,i;
-	float hidrau[11],eoli[11],solar[11],termica[11],otras[11],vector[12],max1;
-	char renovable,funciones,maximos;
+	float hidrau[11],eoli[11],solar[11],termica[11],otras[11],vector[12],max1,prom1;
+	char renovable,funciones,maximos,promedios;
 	FILE *fAndalucia;
 	fAndalucia=fopen("Generacion_Andalucia.csv","r");
 	if(fAndalucia==NULL)
@@ -37,7 +38,7 @@ int main()
 					printf("1.-Hidraulica\n2.-Hidroeolica\n3.-Eolica\n4.-Solar fotovoltaica\n5.-Solar termica\n6.-Otras renovables\n7.-Residuos renovables\n");
 					printf("Pulse A para volver(<----)\n");
 					scanf(" %c",&renovable);
-					if(renovable=='a')
+					if(renovable=='a' || renovable=='A')
 					{
 						system("cls");
 						break;
@@ -53,14 +54,14 @@ int main()
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
-									if(funciones=='a')
+									if(funciones=='a' || funciones=='A')
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)
 										{											
-											case '1'://Máximo
+											case '1'://Máximo de los datos.
 											{
 												do
 												{
@@ -69,12 +70,29 @@ int main()
 													printf("El maximo es %f\n",max1);
 													printf("Pulse A para volver(<----)\n");
 													scanf("   %c",&maximos);
-													if(maximos=='a')
+													if(maximos=='a'||maximos=='A')
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='1');
+												break;
+											}
+											case '3'://Promedio de los datos.
+											{
+												do
+												{
+													system("cls");
+													prom1= promedio(hidrau);
+													printf("El promedio es %f\n",prom1);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || maximos=='A')
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='3');
 												break;
 											}
 										}
@@ -90,14 +108,14 @@ int main()
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
-									if(funciones=='a')
+									if(funciones=='a' || funciones=='A')
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)
 										{											
-											case '1'://Máximo
+											case '1'://Máximo de los datos.
 											{
 												do
 												{
@@ -106,7 +124,7 @@ int main()
 													printf("El maximo es %f\n",max1);
 													printf("Pulse A para volver(<----)\n");
 													scanf("   %c",&maximos);
-													if(maximos=='a')
+													if(maximos=='a'||maximos=='A')
 													{
 														system("cls");
 														break;
@@ -114,8 +132,25 @@ int main()
 												}while(funciones=='1');
 												break;
 											}
+											case '3'://Promedio de los datos.
+											{
+												do
+												{
+													system("cls");
+													prom1= promedio(hidrau);
+													printf("El promedio es %f\n",prom1);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='3');
+												break;
+											}
 										}
-								}while(renovable=='1');
+								}while(renovable=='2');
 							break;
 							}
 					}
@@ -131,7 +166,7 @@ int main()
 					printf("1.-Hidraulica\n2.-Hidroeolica\n3.-Eolica\n4.-Solar fotovoltaica\n5.-Solar termica\n6.-Otras renovables\n7.-Residuos renovables\n");
 					printf("Pulse A para volver(<----)\n");
 					scanf(" %c",&renovable);
-					if(renovable=='a')
+					if(renovable=='a' ||renovable=='A')
 					{
 						system("cls");
 						break;
@@ -147,14 +182,14 @@ int main()
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
-									if(funciones=='a')
+									if(funciones=='a' || funciones=='A')
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)
 										{											
-											case '1'://Máximo
+											case '1'://Máximo de los datos.
 											{
 												do
 												{
@@ -163,7 +198,7 @@ int main()
 													printf("El maximo es %f\n",max1);
 													printf("Pulse A para volver(<----)\n");
 													scanf("   %c",&maximos);
-													if(maximos=='a')
+													if(maximos=='a'||maximos=='A')
 													{
 														system("cls");
 														break;
@@ -171,8 +206,79 @@ int main()
 												}while(funciones=='1');
 												break;
 											}
+											case '3'://Promedio de los datos.
+											{
+												do
+												{
+													system("cls");
+													prom1= promedio(hidrau);
+													printf("El promedio es %f\n",prom1);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='3');
+												break;
+											}
 										}
 								}while(renovable=='1');
+							break;
+							}
+							case '2'://Hidroélica
+							{
+								do
+								{
+									system("cls");
+									printf("Elige la operacion que quieres hacer\n");
+									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
+									printf("Pulse A para volver(<----)\n");
+									scanf("  %c",&funciones);
+									if(funciones=='a' || funciones=='A')
+									{
+										system("cls");
+										break;
+									}
+									switch(funciones)
+										{											
+											case '1'://Máximo de los datos.
+											{
+												do
+												{
+													system("cls");
+													max1= maximo(hidrau);
+													printf("El maximo es %f\n",max1);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&maximos);
+													if(maximos=='a'||maximos=='A')
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='1');
+												break;
+											}
+											case '3'://Promedio de los datos.
+											{
+												do
+												{
+													system("cls");
+													prom1= promedio(hidrau);
+													printf("El promedio es %f\n",prom1);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='3');
+												break;
+											}
+										}
+								}while(renovable=='2');
 							break;
 							}
 					}
@@ -196,4 +302,15 @@ float maximo(float vector[11])
 		}
 	}
 	return max;
+}
+float promedio(float vector[11])
+{
+   int k;
+   float prom,suma=0;
+   for(k=0;k<12;k++)
+   {
+		suma = suma + vector[k];
+   }
+		prom = suma/12.0;
+		return prom;
 }
