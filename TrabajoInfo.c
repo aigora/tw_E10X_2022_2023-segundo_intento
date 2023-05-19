@@ -2,6 +2,9 @@
 
 float  maximo(float vector[11]);
 float promedio(float vector[11]);
+float minimo(float vector[11]);
+void GWhaeuro(float vector[11]);
+void GWhaMWh(float vector[11]);
 int main()
 {
 	int comunidad,i;
@@ -313,4 +316,38 @@ float promedio(float vector[11])
    }
 		prom = suma/12.0;
 		return prom;
+}
+float minimo(float vector[11])
+{
+	int i;
+	float min;
+	vector[0]=min;
+	for (i=0;i<12;i++)
+	{
+		if (vector[i]<min)
+		{
+			min=vector[i];
+		}
+	}
+	return min;
+}
+void GWhaeuro(float vector[11]) // No se tienen en cuenta el precio por fanjas horarias.
+{
+	int i;
+	float precio;
+	for (i=0;i<12;i++)
+	{
+		precio=vector[i]*67.81;
+		printf("El precio de la energia generada en el mes %i fue %.2f.",i+1,precio);
+	}
+}
+void GWhaMWh(float vector[11])
+{
+	int i;
+	float Mwh;
+	for(i=0;i<12;i++)
+	{
+		Mwh=vector[i]*1000;
+		printf("La energia generada en el mes %i en Mwh es %.2f",i+1,Mwh);
+	}
 }
