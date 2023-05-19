@@ -7,11 +7,11 @@ void GWhaeuro(float vector[11]);
 void GWhaMWh(float vector[11]);
 int main()
 {
-	int comunidad,i;
-	float hidrau[11],eoli[11],solar[11],termica[11],otras[11],vector[12],max1,prom1;
-	char renovable,funciones,maximos,promedios;
+	int comunidad,i,palabra=0,lineas=0;
+	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],max1,prom1,num;
+	char renovable,funciones,maximos,promedios,x2;
 	FILE *fAndalucia;
-	fAndalucia=fopen("Generacion_Andalucia.csv","r");
+	fAndalucia=fopen("GeneracionAnd2.csv","r");
 	if(fAndalucia==NULL)
 	{
 		printf("Error al leer el archivo\n");
@@ -19,9 +19,61 @@ int main()
 	}
 	else
 	{
-		for(i=0;i<12;i++)
+		while(fscanf(fAndalucia, "%c",&x2)!=EOF)
 		{
-			fscanf(fAndalucia,"%f,",&hidrau[i]);
+			if(lineas>=5 && lineas<=11)
+			{	
+				if(x2==',')
+				{
+					++palabra;
+					if(palabra>=0 && palabra<=13)
+					{
+						fscanf(fAndalucia,"%f",&num);
+						if(lineas==5)
+						{
+							hidrau[i]=num;
+							i++;
+						}
+						if(lineas==6)
+						{
+							hidroeoli[i]=num;
+							i++;
+						}
+						if(lineas==7)
+						{
+							eoli[i]=num;
+							i++;
+						}
+						if(lineas==8)
+						{
+							solar[i]=num;
+							i++;
+						}
+						if(lineas==9)
+						{
+							termica[i]=num;
+							i++;
+						}
+						if(lineas==10)
+						{
+							otras[i]=num;
+							i++;
+						}
+						if(lineas==11)
+						{
+							resid[i]=num;
+							i++;
+						}
+						
+					}
+				}
+			}
+			if(x2=='\n')
+			{
+			++lineas;
+			palabra=0;
+			i=0;
+			}
 		}	
 	}
 	do
@@ -296,7 +348,7 @@ float maximo(float vector[11])
 {
 	int i;
 	float max;
-	vector[0]=max;
+	max=vector[0];
 	for(i=0;i<12;i++)
 	{
 		if(vector[i]>max)
