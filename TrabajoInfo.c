@@ -880,10 +880,11 @@ void MWhaeuro(float vector[11]) // Funcion que permite al usuario conocer la can
 {
 	int i;
 	float precio;
+	printf("\nEl precio de la energia generada mensualmente es:\n\n");
 	for (i=0;i<12;i++)
 	{
 		precio=vector[i]*76.88;
-		printf("El precio de la energia generada en el mes %i fue %.2f euros.\n",i+1,precio);
+		printf("%i. %.2f\n",i+1,precio);
 	}
 	printf("\n");
 }
@@ -891,10 +892,11 @@ void MWhaGWh(float vector[11]) // Funcion que permite al usuario conocer la ener
 {
 	int i;
 	float Gwh;
+	printf("\nLa eneergia generada mensualmente en GWh es:\n\n");
 	for(i=0;i<12;i++)
 	{
 		Gwh=vector[i]/1000.0;
-		printf("La energia generada en el mes %i en Gwh es %.2f\n",i+1,Gwh);
+		printf("%i %.2f\n",i+1,Gwh);
 	}
 	printf("\n");
 }
