@@ -1,13 +1,14 @@
 #include<stdio.h>
-
-float  maximo(float vector[11]);
+#include<locale.h>
+float  maximo(float vector[11]); // Todas las funciones empleadas
 float promedio(float vector[11]);
 float minimo(float vector[11]);
-void GWhaeuro(float vector[11]);
-void GWhaMWh(float vector[11]);
+void MWhaeuro(float vector[11]);
+void MWhaGWh(float vector[11]);
 
 int main()
 {
+	setlocale (LC_CTYPE,"spanish"); // Funcion para poder utilizar lenguaje propio del castellano.
 	int comunidad,i,palabra=0,lineas=0;
 	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],total[11];
 	float max1,prom1,min1,num;
@@ -103,7 +104,7 @@ int main()
 								{
 									system("cls");
 									printf("Elige la operacion que quieres hacer\n");
-									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
+									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
 									if(funciones=='a' || funciones=='A')//Para volver hacia atrás
@@ -164,6 +165,39 @@ int main()
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
 											}
+											case '4':
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(hidrau);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='4');//La condición es solo para el caso 4
+												break;	
+											}
+											case '5':
+											{
+												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(hidrau);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='5');//La condición es solo para el caso 5
+											}
 										}
 								}while(renovable=='1');//La condición es solo para el caso 1
 							break;
@@ -190,7 +224,7 @@ int main()
 								{
 									system("cls");
 									printf("Elige la operacion que quieres hacer\n");
-									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
+									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
 									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
@@ -202,7 +236,7 @@ int main()
 										{											
 											case '1'://Máximo de los datos.
 											{
-												do
+												do // Do-while para mantener el texto de maximo y que no se acabe el programa
 												{
 													system("cls");
 													max1= maximo(eoli);
@@ -219,7 +253,7 @@ int main()
 											}
 											case '2'://Mínimo de los datos.
 											{
-												do
+												do // Do-while para mantener el texto de minimo y que no se acabe el programa
 												{
 													system("cls");
 													min1= minimo(eoli);
@@ -236,7 +270,7 @@ int main()
 											}
 											case '3'://Promedio de los datos.
 											{
-												do
+												do // Do-while para mantener el texto de promedio y que no se acabe el programa
 												{
 													system("cls");
 													prom1= promedio(eoli);
@@ -250,6 +284,39 @@ int main()
 													}
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
+												case '4':
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(eoli);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='4');//La condición es solo para el caso 4
+												break;	
+											}
+											case '5':
+											{
+												do
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(eoli);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='5');//La condición es solo para el caso 5
+											}
 											}
 										}
 								}while(renovable=='3');//La condición es solo para el caso 3
@@ -261,7 +328,7 @@ int main()
 								{
 									system("cls");
 									printf("Elige la operacion que quieres hacer\n");
-									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
+									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
 									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
@@ -273,7 +340,7 @@ int main()
 										{											
 											case '1'://Máximo de los datos.
 											{
-												do
+												do // Do while para mantener el texto de maximo y que no se acabe el programa
 												{
 													system("cls");
 													max1= maximo(solar);
@@ -290,7 +357,7 @@ int main()
 											}
 											case '2'://Mínimo de los datos.
 											{
-												do
+												do // Do while para mantener el texto de minimo y que no se acabe el programa
 												{
 													system("cls");
 													min1= minimo(solar);
@@ -307,7 +374,7 @@ int main()
 											}
 											case '3'://Promedio de los datos.
 											{
-												do
+												do // Do-while para mantener el texto de promedio y que no se acabe el programa
 												{
 													system("cls");
 													prom1= promedio(solar);
@@ -322,6 +389,39 @@ int main()
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
 											}
+											case '4':
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(solar);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='4');//La condición es solo para el caso 4
+												break;	
+											}
+											case '5': //Do-while para mantener el e¡texto de MWh a GWh y que no se acabe el programa
+											{
+												do
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(solar);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='5');//La condición es solo para el caso 5
+											}
 										}
 								}while(renovable=='4');//La condición es solo para el caso 4
 							break;
@@ -332,7 +432,7 @@ int main()
 								{
 									system("cls");
 									printf("Elige la operacion que quieres hacer\n");
-									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
+									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
 									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
@@ -344,7 +444,7 @@ int main()
 										{											
 											case '1'://Máximo de los datos.
 											{
-												do
+												do // Do while para mantener el texto de maximo y que no se acabe el programa
 												{
 													system("cls");
 													max1= maximo(termica);
@@ -361,7 +461,7 @@ int main()
 											}
 											case '2'://Mínimo de los datos.
 											{
-												do
+												do // Do while para mantener el texto de minimo y que no se acabe el programa
 												{
 													system("cls");
 													min1= minimo(termica);
@@ -378,7 +478,7 @@ int main()
 											}
 											case '3'://Promedio de los datos.
 											{
-												do
+												do // Do while para mantener el texto de promedio y que no se acabe el programa
 												{
 													system("cls");
 													prom1= promedio(termica);
@@ -393,6 +493,39 @@ int main()
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
 											}
+											case '4':
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(termica);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='4');//La condición es solo para el caso 4
+												break;	
+											}
+											case '5': //Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+											{
+												do
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(termica);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='5');//La condición es solo para el caso 5
+											}
 										}
 								}while(renovable=='5');//La condición es solo para el caso 5
 							break;
@@ -403,7 +536,7 @@ int main()
 								{
 									system("cls");
 									printf("Elige la operacion que quieres hacer\n");
-									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n");
+									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("Pulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
 									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
@@ -415,7 +548,7 @@ int main()
 										{											
 											case '1'://Máximo de los datos.
 											{
-												do
+												do // Do while para mantener el texto de maximo y que no se acabe el programa
 												{
 													system("cls");
 													max1= maximo(otras);
@@ -432,7 +565,7 @@ int main()
 											}
 											case '2'://Mínimo de los datos.
 											{
-												do
+												do // Do while para mantener el texto de minimo y que no se acabe el programa
 												{
 													system("cls");
 													min1= minimo(otras);
@@ -449,7 +582,7 @@ int main()
 											}
 											case '3'://Promedio de los datos.
 											{
-												do
+												do // Do while para mantener el texto de promedio y que no se acabe el programa
 												{
 													system("cls");
 													prom1= promedio(otras);
@@ -463,6 +596,39 @@ int main()
 													}
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
+											}
+											case '4':
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(otras);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='4');//La condición es solo para el caso 4
+												break;	
+											}
+											case '5': //Do-while para mantener el e¡texto de MWh a GWh y que no se acabe el programa
+											{
+												do
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(otras);
+													printf("Pulse A para volver(<----)\n");
+													scanf("   %c",&promedios);
+													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='5');//La condición es solo para el caso 5
 											}
 										}
 								}while(renovable=='6');//La condición es solo para el caso 6
@@ -620,7 +786,7 @@ int main()
 	}while(comunidad>=1 && comunidad<=19);//Hago while entre 1 y 19 que son las comunidades autónomas
 	return 0;
 }
-float maximo(float vector[11])//Función máximo
+float maximo(float vector[11])//Función que permite al usuario conocer el maximo valor de energia generada
 {
 	int i;
 	float max;
@@ -634,7 +800,7 @@ float maximo(float vector[11])//Función máximo
 	}
 	return max;
 }
-float promedio(float vector[11])//Función promedio
+float promedio(float vector[11])//Función que permite al usuario conocer el valor promedio de energia generada
 {
    int k;
    float prom,suma=0;
@@ -645,7 +811,7 @@ float promedio(float vector[11])//Función promedio
 		prom = suma/12.0;
 		return prom;
 }
-float minimo(float vector[11])//Función mínimo
+float minimo(float vector[11])//Función que permite al usuario conocer el minimo valor de energia generada
 {
 	int i;
 	float min;
@@ -659,24 +825,26 @@ float minimo(float vector[11])//Función mínimo
 	}
 	return min;
 }
-void GWhaeuro(float vector[11]) // No se tienen en cuenta el precio por fanjas horarias.
+void MWhaeuro(float vector[11]) // Funcion que permite al usuario conocer la cantidad de dinero generada.No se tiene en cuenta el precio por fanjas horarias.
 {
 	int i;
 	float precio;
 	for (i=0;i<12;i++)
 	{
-		precio=vector[i]*67.81;
-		printf("El precio de la energia generada en el mes %i fue %.2f.",i+1,precio);
+		precio=vector[i]*76.88;
+		printf("El precio de la energia generada en el mes %i fue %.2f euros.\n",i+1,precio);
 	}
+	printf("\n");
 }
-void GWhaMWh(float vector[11])
+void MWhaGWh(float vector[11]) // Funcion que permite al usuario conocer la energía generada en cada mes en GWh
 {
 	int i;
-	float Mwh;
+	float Gwh;
 	for(i=0;i<12;i++)
 	{
-		Mwh=vector[i]*1000;
-		printf("La energia generada en el mes %i en Mwh es %.2f",i+1,Mwh);
+		Gwh=vector[i]/1000.0;
+		printf("La energia generada en el mes %i en Gwh es %.2f\n",i+1,Gwh);
 	}
+	printf("\n");
 }
 
