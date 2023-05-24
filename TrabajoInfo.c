@@ -1,12 +1,18 @@
 #include<stdio.h>
 #include<locale.h>
 #include <string.h>
+#include<math.h>
 
 float  maximo(float vector[11]); // Todas las funciones empleadas
 float promedio(float vector[11]);
 float minimo(float vector[11]);
 void MWhaeuro(float vector[11]);
 void MWhaGWh(float vector[11]);
+float desviacion(float vector[11]);
+float varianza(float vector[11]);
+void menoramayor(float vector[11]);
+void mayoramenor(float vector[11]);
+
 typedef struct // Estructura para almacenar los valores energeticos en cada mes
 {
 	char mes[30];
@@ -18,8 +24,8 @@ int main()
 	setlocale (LC_CTYPE,"spanish"); // Funcion para poder utilizar lenguaje propio del castellano.
 	int comunidad,i,palabra=0,lineas=0;
 	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],total[11];
-	float max1,prom1,min1,num;
-	char renovable,funciones,maximos,promedios,minimos,datoAnd,conversiones;
+	float max1,prom1,min1,num,desv1,vari1;
+	char renovable,funciones,datoAnd,atras;
 	energia valoresenergia[1];
 	FILE *fAndalucia;
 	fAndalucia=fopen("GeneracionAnd2.csv","r");
@@ -150,7 +156,7 @@ int main()
 									valoresenergia[0].MWh= hidrau[11];
 									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
-									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
+									printf("1.-Maximo\t\t 8.-Ordenar de mayor a menor\n2.-Minimo\t\t 9.-Ordenar de menor a mayor\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n6.-Desviacion tipica\n7.-Varianza\n");
 									printf("\nPulse A para volver(<----)\n");
 									scanf("  %c",&funciones);
 									if(funciones=='a' || funciones=='A')//Para volver hacia atrás
@@ -168,8 +174,8 @@ int main()
 													max1= maximo(hidrau);
 													printf("\nEl maximo de generacion es %f MWh\n",max1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -185,8 +191,8 @@ int main()
 													min1= minimo(hidrau);
 													printf("\nEl maximo es %f MWh\n",min1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&minimos);
-													if(minimos=='a'||minimos=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -202,8 +208,8 @@ int main()
 													prom1= promedio(hidrau);
 													printf("\nEl promedio es %f MWh\n",prom1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -211,7 +217,7 @@ int main()
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
 											}
-											case '4':
+											case '4'://MWh a euro
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
 												{
@@ -219,8 +225,8 @@ int main()
 													printf("\n");
 													MWhaeuro(hidrau);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -228,7 +234,7 @@ int main()
 												}while(funciones=='4');//La condición es solo para el caso 4
 												break;	
 											}
-											case '5':
+											case '5'://MWh a GWh
 											{
 												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
 												{
@@ -236,13 +242,82 @@ int main()
 													printf("\n");
 													MWhaGWh(hidrau);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='5');//La condición es solo para el caso 5
+												break;
+											}
+											case '6'://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(hidrau);
+													printf("\nLa desviación tipca es %.2f MWh\n",desv1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='6');//La condición es solo para el caso 6
+												break;
+											}
+											case '7'://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(hidrau);
+													printf("\nLa varianza es %.2f MWh*m2\n",vari1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='7');//La condición es solo para el caso 7
+												break;
+											}
+											case '8'://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													mayoramenor(hidrau);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='8');//La condición es solo para el caso 8
+												break;
+											}
+											case '9'://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													menoramayor(hidrau);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='9');//La condición es solo para el caso 9
+												break;
 											}
 										}
 								}while(renovable=='1');//La condición es solo para el caso 1
@@ -325,8 +400,8 @@ int main()
 													max1= maximo(eoli);
 													printf("\nEl maximo es %f MWh\n",max1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -342,8 +417,8 @@ int main()
 													min1= minimo(eoli);
 													printf("\nEl maximo es %f MWh\n",min1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&minimos);
-													if(minimos=='a'||minimos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -359,14 +434,15 @@ int main()
 													prom1= promedio(eoli);
 													printf("\nEl promedio es %f MWh\n",prom1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='3');//La condición es solo para el caso 3
 												break;
+											}
 												case '4':
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
@@ -375,8 +451,8 @@ int main()
 													printf("\n");
 													MWhaeuro(eoli);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -392,14 +468,82 @@ int main()
 													printf("\n");
 													MWhaGWh(eoli);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='5');//La condición es solo para el caso 5
+												break;
 											}
+											case '6'://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(eoli);
+													printf("\nLa desviación tipca es %.2f MWh\n",desv1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='6');//La condición es solo para el caso 6
+												break;
+											}
+											case '7'://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(eoli);
+													printf("\nLa varianza es %.2f MWh*m2\n",vari1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='7');//La condición es solo para el caso 7
+												break;
+											}
+											case '8'://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													mayoramenor(eoli);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='8');//La condición es solo para el caso 8
+												break;
+											}
+											case '9'://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													menoramayor(eoli);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='9');//La condición es solo para el caso 9
+												break;
 											}
 										}
 								}while(renovable=='3');//La condición es solo para el caso 3
@@ -466,8 +610,8 @@ int main()
 													max1= maximo(solar);
 													printf("\nEl maximo es %f MWh\n",max1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -483,8 +627,8 @@ int main()
 													min1= minimo(solar);
 													printf("\nEl maximo es %f MWh\n",min1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&minimos);
-													if(minimos=='a'||minimos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -500,8 +644,8 @@ int main()
 													prom1= promedio(solar);
 													printf("\nEl promedio es %f MWh\n",prom1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -517,8 +661,8 @@ int main()
 													printf("\n");
 													MWhaeuro(solar);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -534,13 +678,82 @@ int main()
 													printf("\n");
 													MWhaGWh(solar);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='5');//La condición es solo para el caso 5
+												break;
+											}
+											case '6'://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(solar);
+													printf("\nLa desviación tipca es %.2f MWh\n",desv1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='6');//La condición es solo para el caso 6
+												break;
+											}
+											case '7'://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(solar);
+													printf("\nLa varianza es %.2f MWh*m2\n",vari1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='7');//La condición es solo para el caso 7
+												break;
+											}
+											case '8'://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													mayoramenor(solar);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='8');//La condición es solo para el caso 8
+												break;
+											}
+											case '9'://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													menoramayor(solar);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='9');//La condición es solo para el caso 9
+												break;
 											}
 										}
 								}while(renovable=='4');//La condición es solo para el caso 4
@@ -607,8 +820,8 @@ int main()
 													max1= maximo(termica);
 													printf("\nEl maximo es %f MWh\n",max1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -624,8 +837,8 @@ int main()
 													min1= minimo(termica);
 													printf("\nEl maximo es %f MWh\n",min1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&minimos);
-													if(minimos=='a'||minimos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -641,8 +854,8 @@ int main()
 													prom1= promedio(termica);
 													printf("\nEl promedio es %f MWh\n",prom1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -658,8 +871,8 @@ int main()
 													printf("\n");
 													MWhaeuro(termica);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -675,13 +888,82 @@ int main()
 													printf("\n");
 													MWhaGWh(termica);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='5');//La condición es solo para el caso 5
+												break;
+											}
+											case '6'://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(termica);
+													printf("\nLa desviación tipca es %.2f MWh\n",desv1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='6');//La condición es solo para el caso 6
+												break;
+											}
+											case '7'://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(termica);
+													printf("\nLa varianza es %.2f MWh*m2\n",vari1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='7');//La condición es solo para el caso 7
+												break;
+											}
+											case '8'://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													mayoramenor(termica);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='8');//La condición es solo para el caso 8
+												break;
+											}
+											case '9'://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													menoramayor(termica);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='9');//La condición es solo para el caso 9
+												break;
 											}
 										}
 								}while(renovable=='5');//La condición es solo para el caso 5
@@ -748,8 +1030,8 @@ int main()
 													max1= maximo(otras);
 													printf("\nEl maximo es %f MWh\n",max1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -765,8 +1047,8 @@ int main()
 													min1= minimo(otras);
 													printf("\nEl maximo es %f MWh\n",min1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&minimos);
-													if(minimos=='a'||minimos=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -782,8 +1064,8 @@ int main()
 													prom1= promedio(otras);
 													printf("\nEl promedio es %f MWh\n",prom1);
 													printf("\nPulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para poder volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para poder volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -799,8 +1081,8 @@ int main()
 													printf("\n");
 													MWhaeuro(otras);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
@@ -816,13 +1098,82 @@ int main()
 													printf("\n");
 													MWhaGWh(otras);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')//Para volver hacia atrás
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
 													{
 														system("cls");
 														break;
 													}
 												}while(funciones=='5');//La condición es solo para el caso 5
+												break;
+											}
+											case '6'://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(otras);
+													printf("\nLa desviación tipca es %.2f MWh\n",desv1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='6');//La condición es solo para el caso 6
+												break;
+											}
+											case '7'://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(otras);
+													printf("\nLa varianza es %.2f MWh*m2\n",vari1);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='7');//La condición es solo para el caso 7
+												break;
+											}
+											case '8'://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													mayoramenor(otras);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='8');//La condición es solo para el caso 8
+												break;
+											}
+											case '9'://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													menoramayor(otras);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones=='9');//La condición es solo para el caso 9
+												break;
 											}
 										}
 								}while(renovable=='6');//La condición es solo para el caso 6
@@ -888,8 +1239,8 @@ int main()
 													max1= maximo(hidrau);
 													printf("El maximo es %f\n",max1);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')
 													{
 														system("cls");
 														break;
@@ -905,8 +1256,8 @@ int main()
 													prom1= promedio(hidrau);
 													printf("El promedio es %f\n",prom1);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')
 													{
 														system("cls");
 														break;
@@ -942,8 +1293,8 @@ int main()
 													max1= maximo(hidrau);
 													printf("El maximo es %f\n",max1);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&maximos);
-													if(maximos=='a'||maximos=='A')
+													scanf("   %c",&atras);
+													if(atras=='a'||atras=='A')
 													{
 														system("cls");
 														break;
@@ -959,8 +1310,8 @@ int main()
 													prom1= promedio(hidrau);
 													printf("El promedio es %f\n",prom1);
 													printf("Pulse A para volver(<----)\n");
-													scanf("   %c",&promedios);
-													if(promedios=='a' || promedios=='A')
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')
 													{
 														system("cls");
 														break;
@@ -1035,12 +1386,79 @@ void MWhaGWh(float vector[11]) // Funcion que permite al usuario conocer la ener
 {
 	int i;
 	float Gwh;
-	printf("\nLa energia generada mensualmente en GWh es:\n\n");
+	printf("\nLa eneergia generada mensualmente en GWh es:\n\n");
 	for(i=0;i<12;i++)
 	{
 		Gwh=vector[i]/1000.0;
-		printf("%i %.2f\n",i+1,Gwh);
+		printf("%i. %.2f GWh\n",i+1,Gwh);
 	}
-	printf("\n");
+}
+float desviacion(float vector[11])//Funcion que permite hacer la desviación típica
+{
+	int i;
+	float desv,suma=0,div;
+	for(i=0;i<12;i++)
+	{
+		suma=suma+pow((vector[i]-promedio(vector)),2);
+	}
+	desv=sqrt(suma/12.0);
+	return desv;
+}
+float varianza(float vector[11])//Funcion que permite hacer la varianza
+{
+	int i;
+	float vari,suma=0,div;
+	for(i=0;i<12;i++)
+	{
+		suma=suma+pow((vector[i]-promedio(vector)),2);
+	}
+	vari=suma/12.0;
+	return vari;
+}
+void mayoramenor(float vector[11])//Funcion que permite ordenar de mayor a menor
+{
+	int i,j;
+	float menmay,aux;
+	for(i=0;i<11;i++)
+    {
+		for(j=i+1;j<12;j++)
+	    {
+	      if (vector[i]<vector[j])
+	      {
+	        // Si es mayor intercambiamos el contenido de los dos elementos
+	        aux = vector[i]; //Necesitamos una variable auxiliar de almacenamiento temporal
+	        vector[i] = vector[j];
+	        vector[j] = aux;
+	      }
+		}
+   	}
+   	printf("La energia generada mensualmente de mayor a menor es:\n\n");
+	  for(i=0;i<12;i++)
+	  {
+	    printf("%i. %f MWh\n",i+1,vector[i]);
+	  }
+}
+void menoramayor(float vector[11])//Funcion que permite ordenar de menor a mayor
+{
+	int i,j;
+	float aux;
+	for(i=0;i<11;i++)
+    {
+		for(j=i+1;j<12;j++)
+	    {
+	      if (vector[i]>vector[j])
+	      {
+	        // Si es mayor intercambiamos el contenido de los dos elementos
+	        aux = vector[i]; //Necesitamos una variable auxiliar de almacenamiento temporal
+	        vector[i] = vector[j];
+	        vector[j] = aux;
+	      }
+		}
+   	}
+   	printf("La energia generada mensualmente de menor a mayor es:\n\n");
+	  for(i=0;i<12;i++)
+	  {
+	    printf("%i. %f MWh\n",i+1,vector[i]);
+	  }
 }
 
