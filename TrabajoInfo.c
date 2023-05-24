@@ -12,7 +12,7 @@ float desviacion(float vector[11]);
 float varianza(float vector[11]);
 void menoramayor(float vector[11]);
 void mayoramenor(float vector[11]);
-
+void MWhaMJ(float vector[11]);
 typedef struct // Estructura para almacenar los valores energeticos en cada mes
 {
 	char mes[30];
@@ -22,10 +22,10 @@ typedef struct // Estructura para almacenar los valores energeticos en cada mes
 int main()
 {
 	setlocale (LC_CTYPE,"spanish"); // Funcion para poder utilizar lenguaje propio del castellano.
-	int comunidad,i,palabra=0,lineas=0;
+	int comunidad,i,palabra=0,lineas=0,funciones;
 	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],total[11];
 	float max1,prom1,min1,num,desv1,vari1;
-	char renovable,funciones,datoAnd,atras;
+	char renovable,datoAnd,atras;
 	energia valoresenergia[1];
 	FILE *fAndalucia;
 	fAndalucia=fopen("GeneracionAnd2.csv","r");
@@ -156,17 +156,17 @@ int main()
 									valoresenergia[0].MWh= hidrau[11];
 									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
-									printf("1.-Maximo\t\t 8.-Ordenar de mayor a menor\n2.-Minimo\t\t 9.-Ordenar de menor a mayor\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n6.-Desviacion tipica\n7.-Varianza\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para volver hacia atrás
+									printf("1.-Maximo\t\t 8.-Ordenar de mayor a menor\n2.-Minimo\t\t 9.-Ordenar de menor a mayor\n3.-Promedio\t\t 10.-MWh a MJ\n4.-Mwh a euro\n5.-MWh a GWh\n6.-Desviacion tipica\n7.-Varianza\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)//Para cada función un número
 										{											
-											case '1'://Máximo de los datos.
+											case 1://Máximo de los datos.
 											{
 												do//Do-while para mantener el texto de máximo y que no se acabe el programa
 												{
@@ -180,10 +180,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='1');//La condición es solo para el caso 1
+												}while(funciones==1);//La condición es solo para el caso 1
 												break;
 											}
-											case '2'://Mínimo de los datos.
+											case 2://Mínimo de los datos.
 											{
 												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
 												{
@@ -197,10 +197,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='2');//La condición es solo para el caso 2
+												}while(funciones==2);//La condición es solo para el caso 2
 												break;
 											}
-											case '3'://Promedio de los datos.
+											case 3://Promedio de los datos.
 											{
 												do//Do-while para mantener el texto de promedio y que no se acabe el programa
 												{
@@ -214,10 +214,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='3');//La condición es solo para el caso 3
+												}while(funciones==3);//La condición es solo para el caso 3
 												break;
 											}
-											case '4'://MWh a euro
+											case 4://MWh a euro
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
 												{
@@ -231,10 +231,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='4');//La condición es solo para el caso 4
+												}while(funciones==4);//La condición es solo para el caso 4
 												break;	
 											}
-											case '5'://MWh a GWh
+											case 5://MWh a GWh
 											{
 												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
 												{
@@ -248,10 +248,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='5');//La condición es solo para el caso 5
+												}while(funciones==5);//La condición es solo para el caso 5
 												break;
 											}
-											case '6'://Desviación típica
+											case 6://Desviación típica
 											{
 												do//Do-while para mantener el texto de desviación
 												{
@@ -265,10 +265,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='6');//La condición es solo para el caso 6
+												}while(funciones==6);//La condición es solo para el caso 6
 												break;
 											}
-											case '7'://Varianza
+											case 7://Varianza
 											{
 												do // Do-while para mantener texto de varianza
 												{
@@ -282,10 +282,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='7');//La condición es solo para el caso 7
+												}while(funciones==7);//La condición es solo para el caso 7
 												break;
 											}
-											case '8'://Mayor a menor
+											case 8://Mayor a menor
 											{
 												do // Do-while para mantener el texto de mayor a menor
 												{
@@ -299,10 +299,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='8');//La condición es solo para el caso 8
+												}while(funciones==8);//La condición es solo para el caso 8
 												break;
 											}
-											case '9'://Menor a mayor
+											case 9://Menor a mayor
 											{
 												do // Do-while para mantener el texto de menor a mayor
 												{
@@ -316,9 +316,26 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='9');//La condición es solo para el caso 9
+												}while(funciones==9);//La condición es solo para el caso 9
 												break;
 											}
+											case 10: // MWH a MJ
+											{
+												do // Do-while para mantener el texto de MWh a MJ
+												{
+													system("cls");
+													printf("\n");
+													MWhaMJ(hidrau);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 9
+												break;
+												}	
 										}
 								}while(renovable=='1');//La condición es solo para el caso 1
 							break;
@@ -329,9 +346,9 @@ int main()
 								{
 									system("cls");
 									printf("\nNo hay datos de hidroeolica en esta comunidad autonoma\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para volver hacia atrás
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
@@ -383,16 +400,16 @@ int main()
 									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)//Para cada función un número
 										{											
-											case '1'://Máximo de los datos.
+											case 1://Máximo de los datos.
 											{
 												do // Do-while para mantener el texto de maximo y que no se acabe el programa
 												{
@@ -406,10 +423,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='1');//La condición es solo para el caso 1
+												}while(funciones==1);//La condición es solo para el caso 1
 												break;
 											}
-											case '2'://Mínimo de los datos.
+											case 2://Mínimo de los datos.
 											{
 												do // Do-while para mantener el texto de minimo y que no se acabe el programa
 												{
@@ -423,10 +440,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='2');//La condición es solo para el caso 2
+												}while(funciones==2);//La condición es solo para el caso 2
 												break;
 											}
-											case '3'://Promedio de los datos.
+											case 3://Promedio de los datos.
 											{
 												do // Do-while para mantener el texto de promedio y que no se acabe el programa
 												{
@@ -440,10 +457,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='3');//La condición es solo para el caso 3
+												}while(funciones==3);//La condición es solo para el caso 3
 												break;
 											}
-												case '4':
+												case 4:
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
 												{
@@ -457,10 +474,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='4');//La condición es solo para el caso 4
+												}while(funciones==4);//La condición es solo para el caso 4
 												break;	
 											}
-											case '5':
+											case 5:
 											{
 												do
 												{
@@ -474,10 +491,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='5');//La condición es solo para el caso 5
+												}while(funciones==5);//La condición es solo para el caso 5
 												break;
 											}
-											case '6'://Desviación típica
+											case 6://Desviación típica
 											{
 												do//Do-while para mantener el texto de desviación
 												{
@@ -491,10 +508,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='6');//La condición es solo para el caso 6
+												}while(funciones==6);//La condición es solo para el caso 6
 												break;
 											}
-											case '7'://Varianza
+											case 7://Varianza
 											{
 												do // Do-while para mantener texto de varianza
 												{
@@ -508,10 +525,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='7');//La condición es solo para el caso 7
+												}while(funciones==7);//La condición es solo para el caso 7
 												break;
 											}
-											case '8'://Mayor a menor
+											case 8://Mayor a menor
 											{
 												do // Do-while para mantener el texto de mayor a menor
 												{
@@ -528,7 +545,7 @@ int main()
 												}while(funciones=='8');//La condición es solo para el caso 8
 												break;
 											}
-											case '9'://Menor a mayor
+											case 9://Menor a mayor
 											{
 												do // Do-while para mantener el texto de menor a mayor
 												{
@@ -542,9 +559,26 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='9');//La condición es solo para el caso 9
+												}while(funciones==9);//La condición es solo para el caso 9
 												break;
 											}
+												case 10: // MWH a MJ
+											{
+												do // Do-while para mantener el texto de MWh a MJ
+												{
+													system("cls");
+													printf("\n");
+													MWhaMJ(eoli);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 9
+												break;
+											}	
 										}
 								}while(renovable=='3');//La condición es solo para el caso 3
 							break;
@@ -593,16 +627,16 @@ int main()
 									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)//Para cada función un número
 										{											
-											case '1'://Máximo de los datos.
+											case 1://Máximo de los datos.
 											{
 												do // Do while para mantener el texto de maximo y que no se acabe el programa
 												{
@@ -616,10 +650,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='1');//La condición es solo para el caso 1
+												}while(funciones==1);//La condición es solo para el caso 1
 												break;
 											}
-											case '2'://Mínimo de los datos.
+											case 2://Mínimo de los datos.
 											{
 												do // Do while para mantener el texto de minimo y que no se acabe el programa
 												{
@@ -633,10 +667,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='2');//La condición es solo para el caso 2
+												}while(funciones==2);//La condición es solo para el caso 2
 												break;
 											}
-											case '3'://Promedio de los datos.
+											case 3://Promedio de los datos.
 											{
 												do // Do-while para mantener el texto de promedio y que no se acabe el programa
 												{
@@ -650,10 +684,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='3');//La condición es solo para el caso 3
+												}while(funciones==3);//La condición es solo para el caso 3
 												break;
 											}
-											case '4':
+											case 4:
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
 												{
@@ -667,10 +701,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='4');//La condición es solo para el caso 4
+												}while(funciones==4);//La condición es solo para el caso 4
 												break;	
 											}
-											case '5': //Do-while para mantener el e¡texto de MWh a GWh y que no se acabe el programa
+											case 5: //Do-while para mantener el e¡texto de MWh a GWh y que no se acabe el programa
 											{
 												do
 												{
@@ -684,10 +718,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='5');//La condición es solo para el caso 5
+												}while(funciones==5);//La condición es solo para el caso 5
 												break;
 											}
-											case '6'://Desviación típica
+											case 6://Desviación típica
 											{
 												do//Do-while para mantener el texto de desviación
 												{
@@ -701,10 +735,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='6');//La condición es solo para el caso 6
+												}while(funciones==6);//La condición es solo para el caso 6
 												break;
 											}
-											case '7'://Varianza
+											case 7://Varianza
 											{
 												do // Do-while para mantener texto de varianza
 												{
@@ -718,10 +752,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='7');//La condición es solo para el caso 7
+												}while(funciones==7);//La condición es solo para el caso 7
 												break;
 											}
-											case '8'://Mayor a menor
+											case 8://Mayor a menor
 											{
 												do // Do-while para mantener el texto de mayor a menor
 												{
@@ -735,10 +769,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='8');//La condición es solo para el caso 8
+												}while(funciones==8);//La condición es solo para el caso 8
 												break;
 											}
-											case '9'://Menor a mayor
+											case 9://Menor a mayor
 											{
 												do // Do-while para mantener el texto de menor a mayor
 												{
@@ -752,9 +786,26 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='9');//La condición es solo para el caso 9
+												}while(funciones==9);//La condición es solo para el caso 9
 												break;
 											}
+												case 10: // MWH a MJ
+											{
+												do // Do-while para mantener el texto de MWh a MJ
+												{
+													system("cls");
+													printf("\n");
+													MWhaMJ(solar);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 9
+												break;
+											}	
 										}
 								}while(renovable=='4');//La condición es solo para el caso 4
 							break;
@@ -803,16 +854,16 @@ int main()
 									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)//Para cada función un número
 										{											
-											case '1'://Máximo de los datos.
+											case 1://Máximo de los datos.
 											{
 												do // Do while para mantener el texto de maximo y que no se acabe el programa
 												{
@@ -829,7 +880,7 @@ int main()
 												}while(funciones=='1');//La condición es solo para el caso 1
 												break;
 											}
-											case '2'://Mínimo de los datos.
+											case 2://Mínimo de los datos.
 											{
 												do // Do while para mantener el texto de minimo y que no se acabe el programa
 												{
@@ -843,10 +894,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='2');//La condición es solo para el caso 2
+												}while(funciones==2);//La condición es solo para el caso 2
 												break;
 											}
-											case '3'://Promedio de los datos.
+											case 3://Promedio de los datos.
 											{
 												do // Do while para mantener el texto de promedio y que no se acabe el programa
 												{
@@ -860,10 +911,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='3');//La condición es solo para el caso 3
+												}while(funciones==3);//La condición es solo para el caso 3
 												break;
 											}
-											case '4':
+											case 4:
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
 												{
@@ -877,10 +928,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='4');//La condición es solo para el caso 4
+												}while(funciones==4);//La condición es solo para el caso 4
 												break;	
 											}
-											case '5': //Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+											case 5: //Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
 											{
 												do
 												{
@@ -894,10 +945,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='5');//La condición es solo para el caso 5
+												}while(funciones==5);//La condición es solo para el caso 5
 												break;
 											}
-											case '6'://Desviación típica
+											case 6://Desviación típica
 											{
 												do//Do-while para mantener el texto de desviación
 												{
@@ -911,10 +962,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='6');//La condición es solo para el caso 6
+												}while(funciones==6);//La condición es solo para el caso 6
 												break;
 											}
-											case '7'://Varianza
+											case 7://Varianza
 											{
 												do // Do-while para mantener texto de varianza
 												{
@@ -928,10 +979,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='7');//La condición es solo para el caso 7
+												}while(funciones==7);//La condición es solo para el caso 7
 												break;
 											}
-											case '8'://Mayor a menor
+											case 8://Mayor a menor
 											{
 												do // Do-while para mantener el texto de mayor a menor
 												{
@@ -945,10 +996,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='8');//La condición es solo para el caso 8
+												}while(funciones==8);//La condición es solo para el caso 8
 												break;
 											}
-											case '9'://Menor a mayor
+											case 9://Menor a mayor
 											{
 												do // Do-while para mantener el texto de menor a mayor
 												{
@@ -962,9 +1013,26 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='9');//La condición es solo para el caso 9
+												}while(funciones==9);//La condición es solo para el caso 9
 												break;
 											}
+												case 10: // MWH a MJ
+											{
+												do // Do-while para mantener el texto de MWh a MJ
+												{
+													system("cls");
+													printf("\n");
+													MWhaMJ(termica);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 9
+												break;
+											}	
 										}
 								}while(renovable=='5');//La condición es solo para el caso 5
 							break;
@@ -1013,16 +1081,16 @@ int main()
 									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
 									}
 									switch(funciones)//Para cada función un número
 										{											
-											case '1'://Máximo de los datos.
+											case 1://Máximo de los datos.
 											{
 												do // Do while para mantener el texto de maximo y que no se acabe el programa
 												{
@@ -1036,10 +1104,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='1');//La condición es solo para el caso 1
+												}while(funciones==1);//La condición es solo para el caso 1
 												break;
 											}
-											case '2'://Mínimo de los datos.
+											case 2://Mínimo de los datos.
 											{
 												do // Do while para mantener el texto de minimo y que no se acabe el programa
 												{
@@ -1053,10 +1121,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='2');//La condición es solo para el caso 2
+												}while(funciones==2);//La condición es solo para el caso 2
 												break;
 											}
-											case '3'://Promedio de los datos.
+											case 3://Promedio de los datos.
 											{
 												do // Do while para mantener el texto de promedio y que no se acabe el programa
 												{
@@ -1070,10 +1138,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='3');//La condición es solo para el caso 3
+												}while(funciones==3);//La condición es solo para el caso 3
 												break;
 											}
-											case '4':
+											case 4:
 											{
 												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
 												{
@@ -1087,10 +1155,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='4');//La condición es solo para el caso 4
+												}while(funciones==4);//La condición es solo para el caso 4
 												break;	
 											}
-											case '5': //Do-while para mantener el e¡texto de MWh a GWh y que no se acabe el programa
+											case 5: //Do-while para mantener el e¡texto de MWh a GWh y que no se acabe el programa
 											{
 												do
 												{
@@ -1104,10 +1172,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='5');//La condición es solo para el caso 5
+												}while(funciones==5);//La condición es solo para el caso 5
 												break;
 											}
-											case '6'://Desviación típica
+											case 6://Desviación típica
 											{
 												do//Do-while para mantener el texto de desviación
 												{
@@ -1124,7 +1192,7 @@ int main()
 												}while(funciones=='6');//La condición es solo para el caso 6
 												break;
 											}
-											case '7'://Varianza
+											case 7://Varianza
 											{
 												do // Do-while para mantener texto de varianza
 												{
@@ -1138,10 +1206,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='7');//La condición es solo para el caso 7
+												}while(funciones==7);//La condición es solo para el caso 7
 												break;
 											}
-											case '8'://Mayor a menor
+											case 8://Mayor a menor
 											{
 												do // Do-while para mantener el texto de mayor a menor
 												{
@@ -1155,10 +1223,10 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='8');//La condición es solo para el caso 8
+												}while(funciones==8);//La condición es solo para el caso 8
 												break;
 											}
-											case '9'://Menor a mayor
+											case 9://Menor a mayor
 											{
 												do // Do-while para mantener el texto de menor a mayor
 												{
@@ -1172,9 +1240,26 @@ int main()
 														system("cls");
 														break;
 													}
-												}while(funciones=='9');//La condición es solo para el caso 9
+												}while(funciones==9);//La condición es solo para el caso 9
 												break;
 											}
+												case 10: // MWH a MJ
+											{
+												do // Do-while para mantener el texto de MWh a MJ
+												{
+													system("cls");
+													printf("\n");
+													MWhaMJ(otras);
+													printf("\nPulse A para volver(<----)\n");
+													scanf("   %c",&atras);
+													if(atras=='a' || atras=='A')//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 9
+												break;
+											}	
 										}
 								}while(renovable=='6');//La condición es solo para el caso 6
 							break;
@@ -1185,9 +1270,9 @@ int main()
 								{
 									system("cls");
 									printf("\nNo hay datos de residuos renovables en esta comunidad autonoma\n");
-									printf("\nPulse A para volver(<----)\n");
-									scanf("  %c",&funciones);
-									if(funciones=='a' || funciones=='A')//Para poder volver hacia atrás
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
 									{
 										system("cls");
 										break;
@@ -1378,7 +1463,7 @@ void MWhaeuro(float vector[11]) // Funcion que permite al usuario conocer la can
 	for (i=0;i<12;i++)
 	{
 		precio=vector[i]*76.88;
-		printf("%i. %.2f\n",i+1,precio);
+		printf("%i. %.2f euros\n",i+1,precio);
 	}
 	printf("\n");
 }
@@ -1460,5 +1545,16 @@ void menoramayor(float vector[11])//Funcion que permite ordenar de menor a mayor
 	  {
 	    printf("%i. %f MWh\n",i+1,vector[i]);
 	  }
+}
+void MWhaMJ(float vector[11]) //Funcion que permite al usuario conocer la cantidad de energia generada en MJ
+{
+	int i;
+	float MJ;
+	printf("\nLa eneergia generada mensualmente en MJ es:\n\n");
+	for(i=0;i<12;i++)
+	{
+		MJ=vector[i]*3600;
+		printf("%i. %.2f MJ\n",i+1,MJ);
+	}
 }
 
