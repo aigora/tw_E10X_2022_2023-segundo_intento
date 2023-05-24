@@ -1,10 +1,17 @@
 #include<stdio.h>
 #include<locale.h>
+#include <string.h>
+
 float  maximo(float vector[11]); // Todas las funciones empleadas
 float promedio(float vector[11]);
 float minimo(float vector[11]);
 void MWhaeuro(float vector[11]);
 void MWhaGWh(float vector[11]);
+typedef struct // Estructura para almacenar los valores energeticos en cada mes
+{
+	char mes[30];
+	float MWh;
+}energia;
 
 int main()
 {
@@ -13,6 +20,7 @@ int main()
 	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],total[11];
 	float max1,prom1,min1,num;
 	char renovable,funciones,maximos,promedios,minimos,datoAnd,conversiones;
+	energia valoresenergia[1];
 	FILE *fAndalucia;
 	fAndalucia=fopen("GeneracionAnd2.csv","r");
 	if(fAndalucia==NULL)//Lectura fichero de Andalucía
@@ -105,15 +113,42 @@ int main()
 								{
 									system("cls");
 									printf("\nA continuacion se muestran los datos de esta energia renovable mensualmente:\n\n");
-									for(i=0;i<6;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,hidrau[i]);
-									}
-									printf("\n\n");
-									for(i=6;i<12;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,hidrau[i]);
-									}
+									strcpy(valoresenergia[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia[0].MWh= hidrau[0];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Febrero");
+									valoresenergia[0].MWh= hidrau[1];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Marzo");
+									valoresenergia[0].MWh= hidrau[2];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Abril");
+									valoresenergia[0].MWh= hidrau[3];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Mayo");
+									valoresenergia[0].MWh= hidrau[4];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Junio");
+									valoresenergia[0].MWh= hidrau[5];
+									printf("%s - %f\t\n",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Julio");
+									valoresenergia[0].MWh= hidrau[6];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Agosto");
+									valoresenergia[0].MWh= hidrau[7];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Septiembre");
+									valoresenergia[0].MWh= hidrau[8];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Octubre");
+									valoresenergia[0].MWh= hidrau[9];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Noviembre");
+									valoresenergia[0].MWh= hidrau[10];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Diciembre");
+									valoresenergia[0].MWh= hidrau[11];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("\nPulse A para volver(<----)\n");
@@ -235,15 +270,42 @@ int main()
 								{
 									system("cls");
 									printf("\nA continuacion se muestran los datos de esta energia renovable mensualmente:\n\n");
-									for(i=0;i<6;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,eoli[i]);
-									}
-									printf("\n\n");
-									for(i=6;i<12;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,eoli[i]);
-									}
+									strcpy(valoresenergia[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia[0].MWh= eoli[0];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Febrero");
+									valoresenergia[0].MWh= eoli[1];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Marzo");
+									valoresenergia[0].MWh= eoli[2];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Abril");
+									valoresenergia[0].MWh= eoli[3];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Mayo");
+									valoresenergia[0].MWh= eoli[4];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Junio");
+									valoresenergia[0].MWh= eoli[5];
+									printf("%s - %f\t\n",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Julio");
+									valoresenergia[0].MWh= eoli[6];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Agosto");
+									valoresenergia[0].MWh= eoli[7];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Septiembre");
+									valoresenergia[0].MWh= eoli[8];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Octubre");
+									valoresenergia[0].MWh= eoli[9];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Noviembre");
+									valoresenergia[0].MWh= eoli[10];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Diciembre");
+									valoresenergia[0].MWh= eoli[11];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("\nPulse A para volver(<----)\n");
@@ -349,15 +411,42 @@ int main()
 								{
 									system("cls");
 									printf("\nA continuacion se muestran los datos de esta energia renovable mensualmente:\n\n");
-									for(i=0;i<6;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,solar[i]);
-									}
-									printf("\n\n");
-									for(i=6;i<12;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,solar[i]);
-									}
+									strcpy(valoresenergia[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia[0].MWh= solar[0];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Febrero");
+									valoresenergia[0].MWh= solar[1];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Marzo");
+									valoresenergia[0].MWh= solar[2];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Abril");
+									valoresenergia[0].MWh= solar[3];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Mayo");
+									valoresenergia[0].MWh= solar[4];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Junio");
+									valoresenergia[0].MWh= solar[5];
+									printf("%s - %f\t\n",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Julio");
+									valoresenergia[0].MWh= solar[6];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Agosto");
+									valoresenergia[0].MWh= solar[7];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Septiembre");
+									valoresenergia[0].MWh= solar[8];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Octubre");
+									valoresenergia[0].MWh= solar[9];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Noviembre");
+									valoresenergia[0].MWh= solar[10];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Diciembre");
+									valoresenergia[0].MWh= solar[11];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("\nPulse A para volver(<----)\n");
@@ -463,15 +552,42 @@ int main()
 								{
 									system("cls");
 									printf("\nA continuacion se muestran los datos de esta energia renovable mensualmente:\n\n");
-									for(i=0;i<6;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,termica[i]);
-									}
-									printf("\n\n");
-									for(i=6;i<12;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,termica[i]);
-									}
+									strcpy(valoresenergia[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia[0].MWh= termica[0];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Febrero");
+									valoresenergia[0].MWh= termica[1];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Marzo");
+									valoresenergia[0].MWh= termica[2];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Abril");
+									valoresenergia[0].MWh= termica[3];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Mayo");
+									valoresenergia[0].MWh= termica[4];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Junio");
+									valoresenergia[0].MWh= termica[5];
+									printf("%s - %f\t\n",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Julio");
+									valoresenergia[0].MWh= termica[6];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Agosto");
+									valoresenergia[0].MWh= termica[7];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Septiembre");
+									valoresenergia[0].MWh= termica[8];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Octubre");
+									valoresenergia[0].MWh= termica[9];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Noviembre");
+									valoresenergia[0].MWh= termica[10];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Diciembre");
+									valoresenergia[0].MWh= termica[11];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("\nPulse A para volver(<----)\n");
@@ -577,15 +693,42 @@ int main()
 								{
 									system("cls");
 									printf("\nA continuacion se muestran los datos de esta energia renovable mensualmente:\n\n");
-									for(i=0;i<6;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,otras[i]);
-									}
-									printf("\n\n");
-									for(i=6;i<12;i++)
-									{
-										printf("%i. %f MWh\t  ",i+1,otras[i]);
-									}
+									strcpy(valoresenergia[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia[0].MWh= otras[0];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Febrero");
+									valoresenergia[0].MWh= otras[1];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Marzo");
+									valoresenergia[0].MWh= otras[2];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Abril");
+									valoresenergia[0].MWh= otras[3];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Mayo");
+									valoresenergia[0].MWh= otras[4];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Junio");
+									valoresenergia[0].MWh= otras[5];
+									printf("%s - %f\t\n",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Julio");
+									valoresenergia[0].MWh= otras[6];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Agosto");
+									valoresenergia[0].MWh= otras[7];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Septiembre");
+									valoresenergia[0].MWh= otras[8];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Octubre");
+									valoresenergia[0].MWh= otras[9];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Noviembre");
+									valoresenergia[0].MWh= otras[10];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
+									strcpy(valoresenergia[0].mes, "Diciembre");
+									valoresenergia[0].MWh= otras[11];
+									printf("%s - %f\t",valoresenergia[0].mes,valoresenergia[0].MWh);
 									printf("\n\n\nElige la operacion que quieres hacer:\n\n");
 									printf("1.-Maximo\n2.-Minimo\n3.-Promedio\n4.-Mwh a euro\n5.-MWh a GWh\n");
 									printf("\nPulse A para volver(<----)\n");
@@ -892,7 +1035,7 @@ void MWhaGWh(float vector[11]) // Funcion que permite al usuario conocer la ener
 {
 	int i;
 	float Gwh;
-	printf("\nLa eneergia generada mensualmente en GWh es:\n\n");
+	printf("\nLa energia generada mensualmente en GWh es:\n\n");
 	for(i=0;i<12;i++)
 	{
 		Gwh=vector[i]/1000.0;
