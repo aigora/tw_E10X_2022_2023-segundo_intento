@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<locale.h>
 #include <string.h>
 #include<math.h>
 
@@ -20,16 +19,25 @@ typedef struct // Estructura para almacenar los valores energeticos en cada mes
 	float MWh;
 }energia;
 
+typedef struct // Estructura para almacenar los valores energeticos en cada mes
+{
+	char mes[30];
+	float MWh;
+}energia2;
+
 int main()
 {
-	setlocale (LC_CTYPE,"spanish"); // Funcion para poder utilizar lenguaje propio del castellano.
-	int comunidad,i,palabra=0,lineas=0;
+	int comunidad,i,palabra=0,lineas=0,palabra2=0,lineas2=0;
 	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],total[11],rectf[11];
-	float max1,prom1,min1,num,desv1,vari1;
-	char datoAnd;
+	float hidrau2[11],hidroeoli2[11],eoli2[11],solar2[11],termica2[11],otras2[11],resid2[11],total2[11],rectf2[11];
+	float max1,prom1,min1,desv1,vari1;
+	float num,num2;
+	char datoAnd,datoArg;
 	int funciones,atras,renovable;
 	energia valoresenergia[1];
+	energia2 valoresenergia2[1];
 	FILE *fAndalucia;
+	FILE *fAragon;
 	fAndalucia=fopen("GeneracionAnd2.csv","r");
 	if(fAndalucia==NULL)//Lectura fichero de Andalucía
 	{
@@ -86,6 +94,62 @@ int main()
 			{
 			++lineas;
 			palabra=0;
+			i=0;
+			}
+		}	
+	}
+	
+	fAragon=fopen("GeneracionArg2.csv","r");
+	if(fAragon==NULL)//Lectura fichero de Andalucía
+	{
+		printf("Error al leer el archivo\n");
+		return -1;
+	}
+	else
+	{
+		while(fscanf(fAragon, "%c",&datoArg)!=EOF)//Lee el fichero hasta el final como si fueraun caracter
+		{
+			if(lineas2>=5 && lineas2<=9)//Para estas lineas interesan los datos
+			{	
+				if(datoArg==',')//Cuando hay una coma suma una palabra
+				{
+					++palabra2;
+					if(palabra2>0 && palabra2<=13)//Son en trece cosas las que vamos a dividir cada linea (no leemos la primera palabra)
+					{
+						fscanf(fAragon,"%f",&num2);//Hacemos otro scanf para poder leer los valores de cada linea como un número
+						if(lineas2==5)//Hidráulica
+						{
+							hidrau2[i]=num2;
+							i++;
+						}
+						if(lineas2==6)//Eólica
+						{
+							eoli2[i]=num2;
+							i++;
+						}
+						if(lineas2==7)//Solar fotovoltaica
+						{
+							solar2[i]=num2;
+							i++;
+						}
+						if(lineas2==8)//Otras renovables
+						{
+							otras2[i]=num2;
+							i++;
+						}
+						if(lineas2==9)//Genereación total
+						{
+							total2[i]=num2;
+							i++;
+						}
+						
+					}
+				}
+			}
+			if(datoArg=='\n')//Cuando detecta un salto de linea suma una linea y pone a cero palabra e i
+			{
+			++lineas2;
+			palabra2=0;
 			i=0;
 			}
 		}	
@@ -1340,7 +1404,1028 @@ int main()
 					}
 				}while(comunidad==1);//La condición es solo para el caso 1
 			break;
+		}
+		case 2://Aragón
+			{	
+				do//Do-while para mantener el texto de las renovables 
+				{
+					system("cls");//Libera la pantalla 
+					printf("\nAhora elige una energia renovable de Aragon:\n\n");
+					printf("1.-Hidraulica\n2.-Hidroeolica\n3.-Eolica\n4.-Solar fotovoltaica\n5.-Solar termica\n6.-Otras renovables\n7.-Residuos renovables\n");
+					printf("\nPulse 0 para volver(<----)\n");
+					scanf(" %i",&renovable);//Se escoge un caracter ahora puesto que también se quiere volver hacia atrás
+					if(renovable==0)//Para poder volver hacia atrás
+					{
+						system("cls");
+						break;
+					}
+					switch(renovable)//Para cada renovable un número
+					{
+						case 1://Hidraulica
+							{
+								do//Do-while para mantener el texto de cada función
+								{
+									system("cls");
+									printf("\nA continuacion se muestran los datos de generacion hidraulica en Aragon:\n\n");
+									strcpy(valoresenergia2[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia2[0].MWh= hidrau2[0];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Febrero");
+									valoresenergia2[0].MWh= hidrau2[1];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Marzo");
+									valoresenergia2[0].MWh= hidrau2[2];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Abril");
+									valoresenergia2[0].MWh= hidrau2[3];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Mayo");
+									valoresenergia2[0].MWh= hidrau2[4];
+									printf("%s - %f MWh\t\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Junio");
+									valoresenergia2[0].MWh= hidrau2[5];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Julio");
+									valoresenergia2[0].MWh= hidrau2[6];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Agosto");
+									valoresenergia2[0].MWh= hidrau2[7];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Septiembre");
+									valoresenergia2[0].MWh= hidrau2[8];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Octubre");
+									valoresenergia2[0].MWh= hidrau2[9];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Noviembre");
+									valoresenergia2[0].MWh= hidrau2[10];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Diciembre");
+									valoresenergia2[0].MWh= hidrau2[11];
+									printf("%s - %f MWh\t\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									printf("\n\nElige la operacion que quieres hacer:\n\n");
+									printf("1.-Maximo\t\t\t 2.-Minimo\t\t 3.-Promedio\t\t\t\t 4.-Mwh a euro\t\t\t\t 5.-MWh a GWh\n\n");
+									printf("6.-Desviacion tipica\t\t 7.-Varianza\t\t 8.-Ordenar de mayor a menor\t\t 9.-Ordenar de menor a mayor\t\t 10.-MWh a MJ\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+									switch(funciones)//Para cada función un número
+										{											
+											case 1://Máximo de los datos.
+											{
+												do//Do-while para mantener el texto de máximo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl maximo de generacion hidraulica en Aragon es:\n\n");
+													maximo(hidrau2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==1);//La condición es solo para el caso 1
+												break;
+											}
+											case 2://Mínimo de los datos.
+											{
+												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl minimo de generacion hidraulica en Aragon es:\n\n");
+													minimo(hidrau2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==2);//La condición es solo para el caso 2
+												break;
+											}
+											case 3://Promedio de los datos.
+											{
+												do//Do-while para mantener el texto de promedio y que no se acabe el programa
+												{
+													system("cls");
+													prom1= promedio(hidrau2);
+													printf("\nEl promedio de generacion hidraulica en Aragon es %f MWh.\n",prom1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==3);//La condición es solo para el caso 3
+												break;
+											}
+											case 4://MWh a euro
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(hidrau2);
+													printf("Pulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==4);//La condición es solo para el caso 4
+												break;	
+											}
+											case 5://MWh a GWh
+											{
+												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(hidrau2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==5);//La condición es solo para el caso 5
+												break;
+											}
+											case 6://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(hidrau2);
+													printf("\nLa desviación tipica de generacion hidraulica en Aragon es %.2f MWh.\n",desv1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==6);//La condición es solo para el caso 6
+												break;
+											}
+											case 7://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(hidrau2);
+													printf("\nLa varianza de generacion hidraulica en Aragon es %.2f MWh*m^2.\n",vari1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==7);//La condición es solo para el caso 7
+												break;
+											}
+											case 8://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion hidraulica de mayor a menor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=hidrau2[i];
+													}
+													mayoramenor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														
+														break;
+													}
+												}while(funciones==8);//La condición es solo para el caso 8
+												break;
+											}
+											case 9://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion hidraulica de menor a mayor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=hidrau2[i];
+													}
+													menoramayor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==9);//La condición es solo para el caso 9
+												break;
+											}
+											case 10://MWh a MJ
+											{
+												do // Do-while para mantener el texto de MJ
+												{
+													system("cls");
+													MWhaMJ(hidrau2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 10
+												break;
+											}
+										}
+								}while(renovable==1);//La condición es solo para el caso 1
+							break;
+							}
+						case 2://Hidroeólica
+							{
+								do//Do-while para mantener el texto
+								{
+									system("cls");
+									printf("\nNo hay datos de generacion hidroeolica en Aragon.\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+								}while(renovable==2);//La condición es solo para el caso 2
+							break;
+							}
+						case 3://Eólica
+							{
+								do//Do-while para mantener el texto de cada función
+								{
+									system("cls");
+									printf("\nA continuacion se muestran los datos de generacion eolica en Aragon:\n\n");
+									strcpy(valoresenergia2[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia2[0].MWh= eoli2[0];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Febrero");
+									valoresenergia2[0].MWh= eoli2[1];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Marzo");
+									valoresenergia2[0].MWh= eoli2[2];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Abril");
+									valoresenergia2[0].MWh= eoli2[3];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Mayo");
+									valoresenergia2[0].MWh= eoli2[4];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Junio");
+									valoresenergia2[0].MWh= eoli2[5];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Julio");
+									valoresenergia2[0].MWh= eoli2[6];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Agosto");
+									valoresenergia2[0].MWh= eoli2[7];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Septiembre");
+									valoresenergia2[0].MWh= eoli2[8];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Octubre");
+									valoresenergia2[0].MWh= eoli2[9];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Noviembre");
+									valoresenergia2[0].MWh= eoli2[10];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Diciembre");
+									valoresenergia2[0].MWh= eoli2[11];
+									printf("%s - %f MWh\t\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									printf("\n\nElige la operacion que quieres hacer:\n\n");
+									printf("1.-Maximo\t\t\t 2.-Minimo\t\t 3.-Promedio\t\t\t\t 4.-Mwh a euro\t\t\t\t 5.-MWh a GWh\n\n");
+									printf("6.-Desviacion tipica\t\t 7.-Varianza\t\t 8.-Ordenar de mayor a menor\t\t 9.-Ordenar de menor a mayor\t\t 10.-MWh a MJ\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para poder volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+									switch(funciones)//Para cada función un número
+										{											
+											case 1://Máximo de los datos.
+											{
+												do//Do-while para mantener el texto de máximo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl maximo de generacion eolica en Aragon es:\n\n");
+													maximo(eoli2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==1);//La condición es solo para el caso 1
+												break;
+											}
+											case 2://Mínimo de los datos.
+											{
+												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl minimo de generacion eolica en Aragon es:\n\n");
+													minimo(eoli2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==2);//La condición es solo para el caso 2
+												break;
+											}
+											case 3://Promedio de los datos.
+											{
+												do//Do-while para mantener el texto de promedio y que no se acabe el programa
+												{
+													system("cls");
+													prom1= promedio(eoli2);
+													printf("\nEl promedio de generacion eolica en Aragon es %f MWh.\n",prom1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==3);//La condición es solo para el caso 3
+												break;
+											}
+											case 4://MWh a euro
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(eoli2);
+													printf("Pulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==4);//La condición es solo para el caso 4
+												break;	
+											}
+											case 5://MWh a GWh
+											{
+												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(eoli2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==5);//La condición es solo para el caso 5
+												break;
+											}
+											case 6://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(eoli2);
+													printf("\nLa desviación tipica de generacion eolica en Aragon es %.2f MWh.\n",desv1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==6);//La condición es solo para el caso 6
+												break;
+											}
+											case 7://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(eoli2);
+													printf("\nLa varianza de generacion eolica en Aragon es %.2f MWh*m^2.\n",vari1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==7);//La condición es solo para el caso 7
+												break;
+											}
+											case 8://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion eolica de mayor a menor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=eoli2[i];
+													}
+													mayoramenor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														
+														break;
+													}
+												}while(funciones==8);//La condición es solo para el caso 8
+												break;
+											}
+											case 9://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion eolica de menor a mayor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=eoli2[i];
+													}
+													menoramayor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==9);//La condición es solo para el caso 9
+												break;
+											}
+											case 10://MWh a MJ
+											{
+												do // Do-while para mantener el texto de MJ
+												{
+													system("cls");
+													MWhaMJ(eoli2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 10
+												break;
+											}
+										}
+								}while(renovable==3);//La condición es solo para el caso 3
+							break;
+							}
+						case 4://Solar fotovoltaica
+							{
+								do//Do-while para mantener el texto de cada función
+								{
+									system("cls");
+									printf("\nA continuacion se muestran los datos de generacion solar fotovoltaica en Aragon:\n\n");
+									strcpy(valoresenergia2[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia2[0].MWh= solar2[0];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Febrero");
+									valoresenergia2[0].MWh= solar2[1];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Marzo");
+									valoresenergia2[0].MWh= solar2[2];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Abril");
+									valoresenergia2[0].MWh= solar2[3];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Mayo");
+									valoresenergia2[0].MWh= solar2[4];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Junio");
+									valoresenergia2[0].MWh= solar2[5];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Julio");
+									valoresenergia2[0].MWh= solar2[6];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Agosto");
+									valoresenergia2[0].MWh= solar2[7];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Septiembre");
+									valoresenergia2[0].MWh= solar2[8];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Octubre");
+									valoresenergia2[0].MWh= solar2[9];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Noviembre");
+									valoresenergia2[0].MWh= solar2[10];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Diciembre");
+									valoresenergia2[0].MWh= solar2[11];
+									printf("%s - %f MWh\t\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									printf("\n\nElige la operacion que quieres hacer:\n\n");
+									printf("1.-Maximo\t\t\t 2.-Minimo\t\t 3.-Promedio\t\t\t\t 4.-Mwh a euro\t\t\t\t 5.-MWh a GWh\n\n");
+									printf("6.-Desviacion tipica\t\t 7.-Varianza\t\t 8.-Ordenar de mayor a menor\t\t 9.-Ordenar de menor a mayor\t\t 10.-MWh a MJ\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para poder volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+									switch(funciones)//Para cada función un número
+										{											
+											case 1://Máximo de los datos.
+											{
+												do//Do-while para mantener el texto de máximo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl maximo de generacion solar fotovoltaica en Aragon es:\n\n");
+													maximo(solar2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==1);//La condición es solo para el caso 1
+												break;
+											}
+											case 2://Mínimo de los datos.
+											{
+												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl minimo de generacion solar fotovoltaica en Aragon es:\n\n");
+													minimo(solar2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==2);//La condición es solo para el caso 2
+												break;
+											}
+											case 3://Promedio de los datos.
+											{
+												do//Do-while para mantener el texto de promedio y que no se acabe el programa
+												{
+													system("cls");
+													prom1= promedio(solar2);
+													printf("\nEl promedio de generacion solar fotovoltaica en Aragon es %f MWh.\n",prom1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==3);//La condición es solo para el caso 3
+												break;
+											}
+											case 4://MWh a euro
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(solar2);
+													printf("Pulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==4);//La condición es solo para el caso 4
+												break;	
+											}
+											case 5://MWh a GWh
+											{
+												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(solar2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==5);//La condición es solo para el caso 5
+												break;
+											}
+											case 6://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(solar2);
+													printf("\nLa desviación tipca de generacion solar fotovoltaica en Aragon es %.2f MWh.\n",desv1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==6);//La condición es solo para el caso 6
+												break;
+											}
+											case 7://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(solar2);
+													printf("\nLa varianza de generacion solar fotovoltaica en Aragon es %.2f MWh*m^2.\n",vari1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==7);//La condición es solo para el caso 7
+												break;
+											}
+											case 8://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los valores de generacion solar fotovoltaica de mayor a menor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=solar2[i];
+													}
+													mayoramenor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														
+														break;
+													}
+												}while(funciones==8);//La condición es solo para el caso 8
+												break;
+											}
+											case 9://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion solar fotovoltaica de menor a mayor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=solar2[i];
+													}
+													menoramayor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==9);//La condición es solo para el caso 9
+												break;
+											}
+											case 10://MWh a MJ
+											{
+												do // Do-while para mantener el texto de MJ
+												{
+													system("cls");
+													MWhaMJ(solar2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 10
+												break;
+											}
+										}
+								}while(renovable==4);//La condición es solo para el caso 4
+							break;
+							}
+						case 5://Solar térmica
+							{
+								do//Do-while para mantener el texto 
+								{
+									system("cls");
+									printf("\nNo hay datos de generacion de solar termica en Aragon.\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para poder volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+								}while(renovable==5);//La condición es solo para el caso 5
+							break;
+							}
+						case 6://Otras renovables
+							{
+								do//Do-while para mantener el texto de cada función
+								{
+									system("cls");
+									printf("\nA continuacion se muestran los datos de generacion de otras renovables en Aragon:\n\n");
+									strcpy(valoresenergia2[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
+									valoresenergia2[0].MWh= otras2[0];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Febrero");
+									valoresenergia2[0].MWh= otras2[1];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Marzo");
+									valoresenergia2[0].MWh= otras2[2];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Abril");
+									valoresenergia2[0].MWh= otras2[3];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Mayo");
+									valoresenergia2[0].MWh= otras2[4];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Junio");
+									valoresenergia2[0].MWh= otras2[5];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Julio");
+									valoresenergia2[0].MWh= otras2[6];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Agosto");
+									valoresenergia2[0].MWh= otras2[7];
+									printf("%s - %f MWh\t\n\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Septiembre");
+									valoresenergia2[0].MWh= otras2[8];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Octubre");
+									valoresenergia2[0].MWh= otras2[9];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Noviembre");
+									valoresenergia2[0].MWh= otras2[10];
+									printf("%s - %f MWh\t",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									strcpy(valoresenergia2[0].mes, "Diciembre");
+									valoresenergia2[0].MWh= otras2[11];
+									printf("%s - %f MWh\t\n",valoresenergia2[0].mes,valoresenergia2[0].MWh);
+									printf("\n\nElige la operacion que quieres hacer:\n\n");
+									printf("1.-Maximo\t\t\t 2.-Minimo\t\t 3.-Promedio\t\t\t\t 4.-Mwh a euro\t\t\t\t 5.-MWh a GWh\n\n");
+									printf("6.-Desviacion tipica\t\t 7.-Varianza\t\t 8.-Ordenar de mayor a menor\t\t 9.-Ordenar de menor a mayor\t\t 10.-MWh a MJ\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para poder volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+									switch(funciones)//Para cada función un número
+										{											
+											case 1://Máximo de los datos.
+											{
+												do//Do-while para mantener el texto de máximo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl maximo de generacion de otras renovables en Aragon es:\n\n");
+													maximo(otras2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==1);//La condición es solo para el caso 1
+												break;
+											}
+											case 2://Mínimo de los datos.
+											{
+												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
+												{
+													system("cls");
+													printf("\nEl minimo de generacion de otras renovables en Aragon es:\n\n");
+													minimo(otras2);
+													printf("\n\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==2);//La condición es solo para el caso 2
+												break;
+											}
+											case 3://Promedio de los datos.
+											{
+												do//Do-while para mantener el texto de promedio y que no se acabe el programa
+												{
+													system("cls");
+													prom1= promedio(otras2);
+													printf("\nEl promedio de generacion de otras renovables en Aragon es %f MWh.\n",prom1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==3);//La condición es solo para el caso 3
+												break;
+											}
+											case 4://MWh a euro
+											{
+												do //Do-while para mantener el texto de MWh a euro y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaeuro(otras2);
+													printf("Pulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==4);//La condición es solo para el caso 4
+												break;	
+											}
+											case 5://MWh a GWh
+											{
+												do // Do-while para mantener el texto de MWh a GWh y que no se acabe el programa
+												{
+													system("cls");
+													printf("\n");
+													MWhaGWh(otras2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==5);//La condición es solo para el caso 5
+												break;
+											}
+											case 6://Desviación típica
+											{
+												do//Do-while para mantener el texto de desviación
+												{
+													system("cls");
+													desv1= desviacion(otras2);
+													printf("\nLa desviación tipica de generacion de otras renovables en Aragon es %.2f MWh.\n",desv1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==6);//La condición es solo para el caso 6
+												break;
+											}
+											case 7://Varianza
+											{
+												do // Do-while para mantener texto de varianza
+												{
+													system("cls");
+													vari1=varianza(otras2);
+													printf("\nLa varianza de generacion de otras renovables en Aragon es %.2f MWh*m^2.\n",vari1);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==7);//La condición es solo para el caso 7
+												break;
+											}
+											case 8://Mayor a menor
+											{
+												do // Do-while para mantener el texto de mayor a menor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion de otras renovables de mayor a menor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=otras2[i];
+													}
+													mayoramenor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														
+														break;
+													}
+												}while(funciones==8);//La condición es solo para el caso 8
+												break;
+											}
+											case 9://Menor a mayor
+											{
+												do // Do-while para mantener el texto de menor a mayor
+												{
+													system("cls");
+													printf("\n");
+													printf("Los datos de generacion de otras renovables de menor a mayor en Aragon son:\n\n");
+													for(i=0;i<12;i++)
+													{
+														rectf2[i]=otras2[i];
+													}
+													menoramayor(rectf2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==9);//La condición es solo para el caso 9
+												break;
+											}
+											case 10://MWh a MJ
+											{
+												do // Do-while para mantener el texto de MJ
+												{
+													system("cls");
+													MWhaMJ(otras2);
+													printf("\nPulse 0 para volver(<----)\n");
+													scanf("   %i",&atras);
+													if(atras==0)//Para volver hacia atrás
+													{
+														system("cls");
+														break;
+													}
+												}while(funciones==10);//La condición es solo para el caso 10
+												break;
+											}
+										}
+								}while(renovable==6);//La condición es solo para el caso 6
+							break;
+							}
+						case 7://Residuos renovables
+							{
+								do//Do-while para mantener el texto de cada función
+								{
+									system("cls");
+									printf("\nNo hay datos de generacion de residuos renovables en Aragon.\n");
+									printf("\nPulse 0 para volver(<----)\n");
+									scanf("  %i",&funciones);
+									if(funciones==0)//Para poder volver hacia atrás
+									{
+										system("cls");
+										break;
+									}
+								}while(renovable==7);//La condición es solo para el caso 7
+							break;
+							}		
+					}
+				}while(comunidad==2);//La condición es solo para el caso 1
+			break;
 			}
+			
 	}
 	}while(comunidad>=1 && comunidad<=19);//Hago while entre 1 y 19 que son las comunidades autónomas
 	return 0;
