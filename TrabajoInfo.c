@@ -16809,7 +16809,7 @@ int main()
 								do//Do-while para mantener el texto de cada función
 								{
 									system("cls");
-									printf("\nA continuacion se muestran los datos de generacion eolica en Aragon:\n\n");
+									printf("\nA continuacion se muestran los datos de generacion eolica en La Rioja:\n\n");
 									strcpy(valoresenergia15[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
 									valoresenergia15[0].MWh= eoli15[0];
 									printf("%s - %f MWh\t",valoresenergia15[0].mes,valoresenergia15[0].MWh);
