@@ -1421,7 +1421,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau);
-													printf("\nLa desviación tipica de generacion hidraulica en Andalucia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Andalucia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -1675,7 +1675,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli);
-													printf("\nLa desviación tipica de generacion eolica en Andalucia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Andalucia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -1913,7 +1913,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Andalucia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Andalucia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -2151,7 +2151,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(termica);
-													printf("\nLa desviación tipica de generacion solar termica en Andalucia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar termica en Andalucia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -2389,7 +2389,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras);
-													printf("\nLa desviación tipica de generacion de otras renovables en Andalucia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Andalucia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -2663,7 +2663,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau2);
-													printf("\nLa desviación tipica de generacion hidraulica en Aragon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Aragon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -2917,7 +2917,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli2);
-													printf("\nLa desviación tipica de generacion eolica en Aragon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Aragon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -3155,7 +3155,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar2);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Aragon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Aragon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -3409,7 +3409,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras2);
-													printf("\nLa desviación tipica de generacion de otras renovables en Aragon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Aragon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -3683,7 +3683,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau3);
-													printf("\nLa desviación tipica de generacion hidraulica en Asturias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Asturias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -3937,7 +3937,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli3);
-													printf("\nLa desviación tipica de generacion eolica en Asturias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Asturias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -4175,7 +4175,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar3);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Asturias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Asturias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -4429,7 +4429,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras3);
-													printf("\nLa desviación tipica de generacion de otras renovables en Asturias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Asturias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -4703,7 +4703,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau4);
-													printf("\nLa desviación tipica de generacion hidraulica en Cantabria es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Cantabria es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -4957,7 +4957,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli4);
-													printf("\nLa desviación tipica de generacion eolica en Cantabria es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Cantabria es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -5195,7 +5195,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar4);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Cantabria es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Cantabria es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -5449,7 +5449,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras4);
-													printf("\nLa desviación tipica de generacion de otras renovables en Cantabria es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Cantabria es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -5687,7 +5687,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid4);
-													printf("\nLa desviación tipica de generacion de residuos renovables en Cantabria es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de residuos renovables en Cantabria es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -5820,7 +5820,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia5[0].mes,valoresenergia5[0].MWh);
 									strcpy(valoresenergia5[0].mes, "Mayo");
 									valoresenergia5[0].MWh= hidrau5[4];
-									printf("%s - %f MWh\t\t",valoresenergia5[0].mes,valoresenergia5[0].MWh);
+									printf("%s - %f MWh\t",valoresenergia5[0].mes,valoresenergia5[0].MWh);
 									strcpy(valoresenergia5[0].mes, "Junio");
 									valoresenergia5[0].MWh= hidrau5[5];
 									printf("%s - %f MWh\t",valoresenergia5[0].mes,valoresenergia5[0].MWh);
@@ -5945,7 +5945,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau5);
-													printf("\nLa desviación tipica de generacion hidraulica en Castilla-La Mancha es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Castilla-La Mancha es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -6199,7 +6199,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli5);
-													printf("\nLa desviación tipica de generacion eolica en Castilla-La Mancha es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Castilla-La Mancha es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -6437,7 +6437,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar5);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Castilla-La Mancha es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Castilla-La Mancha es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -6566,7 +6566,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia5[0].mes,valoresenergia5[0].MWh);
 									strcpy(valoresenergia5[0].mes, "Mayo");
 									valoresenergia5[0].MWh= otras5[4];
-									printf("%s - %f MWh\t",valoresenergia5[0].mes,valoresenergia5[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia5[0].mes,valoresenergia5[0].MWh);
 									strcpy(valoresenergia5[0].mes, "Junio");
 									valoresenergia5[0].MWh= otras5[5];
 									printf("%s - %f MWh\t",valoresenergia5[0].mes,valoresenergia5[0].MWh);
@@ -6691,7 +6691,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras5);
-													printf("\nLa desviación tipica de generacion de otras renovables en Castilla-La Manchaes %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Castilla-La Manchaes %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -6965,7 +6965,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau6);
-													printf("\nLa desviación tipica de generacion hidraulica en Castilla y Leon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Castilla y Leon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -7219,7 +7219,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli6);
-													printf("\nLa desviación tipica de generacion eolica en Castilla y Leon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Castilla y Leon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -7457,7 +7457,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar6);
-													printf("\nLa desviación tipica de generacion solar fotovoltaica en Castilla y Leon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar fotovoltaica en Castilla y Leon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -7570,7 +7570,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia6[0].mes,valoresenergia6[0].MWh);
 									strcpy(valoresenergia6[0].mes, "Mayo");
 									valoresenergia6[0].MWh= termica6[4];
-									printf("%s - %f MWh\t",valoresenergia6[0].mes,valoresenergia6[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia6[0].mes,valoresenergia6[0].MWh);
 									strcpy(valoresenergia6[0].mes, "Junio");
 									valoresenergia[0].MWh= termica[5];
 									printf("%s - %f MWh\t",valoresenergia6[0].mes,valoresenergia6[0].MWh);
@@ -7695,7 +7695,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(termica6);
-													printf("\nLa desviación tipica de generacion solar termica en Castilla y Leon es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar termica en Castilla y Leon es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -7808,7 +7808,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia6[0].mes,valoresenergia6[0].MWh);
 									strcpy(valoresenergia6[0].mes, "Mayo");
 									valoresenergia6[0].MWh= otras6[4];
-									printf("%s - %f MWh\t",valoresenergia6[0].mes,valoresenergia6[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia6[0].mes,valoresenergia6[0].MWh);
 									strcpy(valoresenergia6[0].mes, "Junio");
 									valoresenergia6[0].MWh= otras6[5];
 									printf("%s - %f MWh\t",valoresenergia6[0].mes,valoresenergia6[0].MWh);
@@ -7933,7 +7933,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras6);
-													printf("\nLa desviación tipica de generacion de otras renovables en Castilla y Leones %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Castilla y Leones %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -8082,7 +8082,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Mayo");
 									valoresenergia7[0].MWh= hidrau7[4];
-									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Junio");
 									valoresenergia7[0].MWh= hidrau7[5];
 									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
@@ -8207,7 +8207,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau7);
-													printf("\nLa desviación tipica de generacion hidraulica en Catalunya es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Catalunya es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -8461,7 +8461,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli7);
-													printf("\nLa desviación tipica de generacion eolica en Catalunya es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Catalunya es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -8574,7 +8574,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Mayo");
 									valoresenergia7[0].MWh= solar7[4];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Junio");
 									valoresenergia7[0].MWh= solar7[5];
 									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
@@ -8699,7 +8699,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar7);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Catalunya es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Catalunya es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -8800,22 +8800,22 @@ int main()
 									printf("\nA continuacion se muestran los datos de generacion solar termica en Catalunya:\n\n");
 									strcpy(valoresenergia7[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
 									valoresenergia7[0].MWh= termica7[0];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Febrero");
 									valoresenergia7[0].MWh= termica7[1];
 									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Marzo");
 									valoresenergia7[0].MWh= termica7[2];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Abril");
 									valoresenergia7[0].MWh= termica7[3];
 									printf("%s - %f MWh\t\n\n",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Mayo");
 									valoresenergia7[0].MWh= termica7[4];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Junio");
 									valoresenergia7[0].MWh= termica7[5];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Julio");
 									valoresenergia7[0].MWh= termica7[6];
 									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
@@ -8937,7 +8937,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(termica7);
-													printf("\nLa desviación tipica de generacion solar termica en Catalunya es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar termica en Catalunya es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -9050,7 +9050,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Mayo");
 									valoresenergia7[0].MWh= otras7[4];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Junio");
 									valoresenergia7[0].MWh= otras7[5];
 									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
@@ -9175,7 +9175,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras7);
-													printf("\nLa desviación tipica de generacion de otras renovables en Catalunya es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Catalunya es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -9288,7 +9288,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Mayo");
 									valoresenergia7[0].MWh= resid7[4];
-									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
 									strcpy(valoresenergia7[0].mes, "Junio");
 									valoresenergia7[0].MWh= resid7[5];
 									printf("%s - %f MWh\t",valoresenergia7[0].mes,valoresenergia7[0].MWh);
@@ -9413,7 +9413,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid7);
-													printf("\nLa desviación tipica de generacion de residuos renovables en Catalunya es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de residuos renovables en Catalunya es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -9550,13 +9550,13 @@ int main()
 									printf("\nA continuacion se muestran los datos de generacion hidraulica en la Comunidad de Madrid:\n\n");
 									strcpy(valoresenergia9[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
 									valoresenergia9[0].MWh= hidrau9[0];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Febrero");
 									valoresenergia9[0].MWh= hidrau9[1];
 									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Marzo");
 									valoresenergia9[0].MWh= hidrau9[2];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Abril");
 									valoresenergia9[0].MWh= hidrau9[3];
 									printf("%s - %f MWh\t\n\n",valoresenergia9[0].mes,valoresenergia9[0].MWh);
@@ -9687,7 +9687,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau9);
-													printf("\nLa desviación tipica de generacion hidraulica en la Comunidad de Madrid es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en la Comunidad de Madrid es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -9820,25 +9820,25 @@ int main()
 									printf("\nA continuacion se muestran los datos de generacion solar fotovoltaica en la Comunidad de Madrid:\n\n");
 									strcpy(valoresenergia9[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
 									valoresenergia9[0].MWh= solar9[0];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Febrero");
 									valoresenergia9[0].MWh= solar9[1];
 									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Marzo");
 									valoresenergia9[0].MWh= solar9[2];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Abril");
 									valoresenergia9[0].MWh= solar9[3];
 									printf("%s - %f MWh\t\n\n",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Mayo");
 									valoresenergia9[0].MWh= solar9[4];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Junio");
 									valoresenergia9[0].MWh= solar9[5];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Julio");
 									valoresenergia9[0].MWh= solar9[6];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Agosto");
 									valoresenergia9[0].MWh= solar9[7];
 									printf("%s - %f MWh\t\n\n",valoresenergia9[0].mes,valoresenergia9[0].MWh);
@@ -9888,7 +9888,7 @@ int main()
 												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
 												{
 													system("cls");
-													printf("\nEl minimo de generacion solar fotovoltaica en la Comunidad de Madrides:\n\n");
+													printf("\nEl minimo de generacion solar fotovoltaica en la Comunidad de Madrid es:\n\n");
 													minimo(solar9);
 													printf("\n\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
@@ -9957,7 +9957,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar9);
-													printf("\nLa desviación tipica de generacion solar fotovoltaica en la Comunidad de Madrid es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar fotovoltaica en la Comunidad de Madrid es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -10086,7 +10086,7 @@ int main()
 									printf("%s - %f MWh\t\n\n",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Mayo");
 									valoresenergia9[0].MWh= otras9[4];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Junio");
 									valoresenergia9[0].MWh= otras9[5];
 									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
@@ -10211,7 +10211,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras9);
-													printf("\nLa desviación tipica de generacion de otras renovables en la Comunidad de Madrid  es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en la Comunidad de Madrid  es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -10312,25 +10312,25 @@ int main()
 									printf("\nA continuacion se muestran los datos de generacion de residuos renovables en la Comunidad de Madrid :\n\n");
 									strcpy(valoresenergia9[0].mes, "Enero"); // Imprimimos los datos utilizando el vector de la estructura
 									valoresenergia9[0].MWh= resid9[0];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Febrero");
 									valoresenergia9[0].MWh= resid9[1];
 									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Marzo");
 									valoresenergia9[0].MWh= resid9[2];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Abril");
 									valoresenergia9[0].MWh= resid9[3];
 									printf("%s - %f MWh\t\n\n",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Mayo");
 									valoresenergia9[0].MWh= resid9[4];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Junio");
 									valoresenergia9[0].MWh= resid9[5];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Julio");
 									valoresenergia9[0].MWh= resid9[6];
-									printf("%s - %f MWh\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
+									printf("%s - %f MWh\t\t",valoresenergia9[0].mes,valoresenergia9[0].MWh);
 									strcpy(valoresenergia9[0].mes, "Agosto");
 									valoresenergia9[0].MWh= resid9[7];
 									printf("%s - %f MWh\t\n\n",valoresenergia9[0].mes,valoresenergia9[0].MWh);
@@ -10363,7 +10363,7 @@ int main()
 												do//Do-while para mantener el texto de máximo y que no se acabe el programa
 												{
 													system("cls");
-													printf("\nEl maximo de generacion de residuos renovables en la Comunidad de Madrid  es:\n\n");
+													printf("\nEl maximo de generacion de residuos renovables en la Comunidad de Madrid es:\n\n");
 													maximo(resid9);
 													printf("\n\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
@@ -10380,7 +10380,7 @@ int main()
 												do//Do-while para mantener el texto de mínimo y que no se acabe el programa
 												{
 													system("cls");
-													printf("\nEl minimo de generacion de residuos renovables en la Comunidad de Madrid  es:\n\n");
+													printf("\nEl minimo de generacion de residuos renovables en la Comunidad de Madrid es:\n\n");
 													minimo(resid9);
 													printf("\n\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
@@ -10398,7 +10398,7 @@ int main()
 												{
 													system("cls");
 													prom1= promedio(resid9);
-													printf("\nEl promedio de generacion de residuos renovables en la Comunidad de Madrid  es %f MWh.\n",prom1);
+													printf("\nEl promedio de generacion de residuos renovables en la Comunidad de Madrid es %f MWh.\n",prom1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -10449,7 +10449,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid9);
-													printf("\nLa desviación tipica de generacion de residuos renovables en la Comunidad de Madrid  es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de residuos renovables en la Comunidad de Madrid es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -10483,7 +10483,7 @@ int main()
 												{
 													system("cls");
 													printf("\n");
-													printf("Los datos de generacion de residuos renovables de mayor a menor en la Comunidad de Madrid  son:\n\n");
+													printf("Los datos de generacion de residuos renovables de mayor a menor en la Comunidad de Madrid son:\n\n");
 													for(i=0;i<12;i++)
 													{
 														rectf9[i]=resid9[i];
@@ -10506,7 +10506,7 @@ int main()
 												{
 													system("cls");
 													printf("\n");
-													printf("Los datos de generacion de residuos renovables de menor a mayor en la Comunidad de Madrid  son:\n\n");
+													printf("Los datos de generacion de residuos renovables de menor a mayor en la Comunidad de Madrid son:\n\n");
 													for(i=0;i<12;i++)
 													{
 														rectf9[i]=resid9[i];
@@ -10707,7 +10707,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau10);
-													printf("\nLa desviación tipica de generacion hidraulica en Valencia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Valencia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -10961,7 +10961,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli10);
-													printf("\nLa desviación tipica de generacion eolica en Valencia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Valencia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -11199,7 +11199,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar10);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Valencia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Valencia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -11437,7 +11437,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(termica10);
-													printf("\nLa desviación tipica de generacion solar termica en Valencia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar termica en Valencia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -11675,7 +11675,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras10);
-													printf("\nLa desviación tipica de generacion de otras renovables en Valencia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Valencia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -11949,7 +11949,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau11);
-													printf("\nLa desviación tipica de generacion hidraulica en Extremadura es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Extremadura es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -12203,7 +12203,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli11);
-													printf("\nLa desviación tipica de generacion eolica en Extremadura es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Extremadura es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -12441,7 +12441,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar11);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Extremadura es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Extremadura es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -12679,7 +12679,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(termica11);
-													printf("\nLa desviación tipica de generacion solar termica en Extremadura es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar termica en Extremadura es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -12917,7 +12917,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras11);
-													printf("\nLa desviación tipica de generacion de otras renovables en Extremadura es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Extremadura es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -13191,7 +13191,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau12);
-													printf("\nLa desviación tipica de generacion hidraulica en Galicia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Galicia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -13445,7 +13445,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli12);
-													printf("\nLa desviación tipica de generacion eolica en Galicia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Galicia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -13683,7 +13683,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar12);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Galicia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Galicia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -13937,7 +13937,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras12);
-													printf("\nLa desviación tipica de generacion de otras renovables en Galicia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Galicia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -14175,7 +14175,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid12);
-													printf("\nLa desviación tipica de generacion en residuos renovables en Galicia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion en residuos renovables en Galicia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -14465,7 +14465,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli13);
-													printf("\nLa desviación tipica de generacion eolica en las Islas Baleares es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en las Islas Baleares es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -14703,7 +14703,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar13);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en las Islas Baleares es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en las Islas Baleares es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -14957,7 +14957,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras13);
-													printf("\nLa desviación tipica de generacion de otras renovables en las Islas Baleares es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en las Islas Baleares es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -15195,7 +15195,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid13);
-													printf("\nLa desviación tipica de generacion de residuos renovables en las Islas Baleares es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de residuos renovables en las Islas Baleares es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -15453,7 +15453,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau14);
-													printf("\nLa desviación tipica de generacion hidraulica en las Islas Canarias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en las Islas Canarias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -15691,7 +15691,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidroeoli14);
-													printf("\nLa desviación tipica de generacion hidroeolica en las Islas Canarias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidroeolica en las Islas Canarias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -15929,7 +15929,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli14);
-													printf("\nLa desviación tipica de generacion eolica en las Islas Canarias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en las Islas Canarias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -16167,7 +16167,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar14);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en las Islas Canarias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en las Islas Canarias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -16421,7 +16421,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras14);
-													printf("\nLa desviación tipica de generacion de otras renovables en las Islas Canarias es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en las Islas Canarias es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -16695,7 +16695,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau15);
-													printf("\nLa desviación tipica de generacion hidraulica en La Rioja es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en La Rioja es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -16949,7 +16949,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli15);
-													printf("\nLa desviación tipica de generacion eolica en La Rioja es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en La Rioja es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -17187,7 +17187,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar15);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en La Rioja es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en La Rioja es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -17441,7 +17441,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras15);
-													printf("\nLa desviación tipica de generacion de otras renovables en La Rioja es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en La Rioja es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -17763,7 +17763,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar16);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Melilla es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Melilla es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -18033,7 +18033,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid16);
-													printf("\nLa desviación tipca de residuos renovables en Melilla es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de residuos renovables en Melilla es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -18291,7 +18291,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau17);
-													printf("\nLa desviación tipica de generacion hidraulica en Murcia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Murcia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -18545,7 +18545,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli17);
-													printf("\nLa desviación tipica de generacion eolica en Murica es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Murica es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -18783,7 +18783,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar17);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Murcia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Murcia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -19021,7 +19021,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(termica17);
-													printf("\nLa desviación tipica de generacion solar termica en Murccia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion solar termica en Murccia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -19259,7 +19259,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras17);
-													printf("\nLa desviación tipica de generacion de otras renovables en Murcia es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Murcia es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -19533,7 +19533,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau18);
-													printf("\nLa desviación tipica de generacion hidraulica en Navarra es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Navarra es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -19787,7 +19787,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli18);
-													printf("\nLa desviación tipica de generacion eolica en Navarra es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Navarra es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -20025,7 +20025,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar18);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Navarra es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Navarra es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -20279,7 +20279,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras18);
-													printf("\nLa desviación tipica de generacion de otras renovables en Navarra es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Navarra es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -20553,7 +20553,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(hidrau19);
-													printf("\nLa desviación tipica de generacion hidraulica en Pais Vasco es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion hidraulica en Pais Vasco es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -20807,7 +20807,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(eoli19);
-													printf("\nLa desviación tipica de generacion eolica en Pais Vasco es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion eolica en Pais Vasco es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -21045,7 +21045,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(solar19);
-													printf("\nLa desviación tipca de generacion solar fotovoltaica en Pais Vasco es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de generacion solar fotovoltaica en Pais Vasco es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -21299,7 +21299,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(otras19);
-													printf("\nLa desviación tipica de generacion de otras renovables en Pais Vasco es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipica de generacion de otras renovables en Pais Vasco es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
@@ -21537,7 +21537,7 @@ int main()
 												{
 													system("cls");
 													desv1= desviacion(resid19);
-													printf("\nLa desviación tipca de residuos renovables en Pais Vasco es %.2f MWh.\n",desv1);
+													printf("\nLa desviacion tipca de residuos renovables en Pais Vasco es %.2f MWh.\n",desv1);
 													printf("\nPulse 0 para volver(<----)\n");
 													scanf("   %i",&atras);
 													if(atras==0)//Para volver hacia atrás
