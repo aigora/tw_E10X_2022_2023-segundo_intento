@@ -132,7 +132,7 @@ int main()
 {
 	int comunidad,i;
 	int palabra=0,lineas=0,palabra2=0,lineas2=0,palabra3=0,lineas3=0,palabra4=0,lineas4=0,palabra5=0,lineas5=0,palabra6=0,lineas6=0,palabra7=0,lineas7=0;
-	int palabra8=0,lineas8=0,palabra9=0,lineas9=0,palabra10=0,lineas10=0,palabra11=0,lineas11=0,palabra12,lineas12,palabra13,lineas13,palabra14,lineas14;
+	int palabra8=0,lineas8=0,palabra9=0,lineas9=0,palabra10=0,lineas10=0,palabra11=0,lineas11=0,palabra12=0,lineas12=0,palabra13=0,lineas13=0,palabra14=0,lineas14=0;
 	int palabra15=0,lineas15=0,palabra16=0,lineas16=0,palabra17=0,lineas17=0,palabra18=0,lineas18=0,palabra19=0,lineas19=0;
 	
 	float hidrau[11],hidroeoli[11],eoli[11],solar[11],termica[11],otras[11],resid[11],total[11],rectf[11];
@@ -257,7 +257,8 @@ int main()
 			palabra=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fAndalucia);	
 	}
 	
 	fAragon=fopen("GeneracionArg2.csv","r");
@@ -313,7 +314,8 @@ int main()
 			palabra2=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fAragon);	
 	}
 	
 	fAsturias=fopen("GeneracionAus2.csv","r");
@@ -369,7 +371,8 @@ int main()
 			palabra3=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fAsturias);	
 	}
 	
 	fCantabria=fopen("GeneracionCan2.csv","r");
@@ -430,7 +433,8 @@ int main()
 			palabra4=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fCantabria);	
 	}
 	
 	fCastillalaMancha=fopen("GeneracionCast_M2.csv","r");
@@ -485,7 +489,8 @@ int main()
 			palabra5=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fCastillalaMancha);	
 	}
 	
 	fLeon=fopen("GeneracionCast_L2.csv","r");
@@ -545,7 +550,8 @@ int main()
 			palabra6=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fLeon);	
 	}
 	
 	fCatalunya=fopen("GeneracionCata2.csv","r");
@@ -610,7 +616,8 @@ int main()
 			palabra7=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fCatalunya);	
 	}
 	
 	fMadrid=fopen("GeneracionMad2.csv","r");
@@ -665,7 +672,8 @@ int main()
 			palabra9=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fMadrid);	
 	}
 	fValencia=fopen("GeneracionVal2.csv","r");
 	if(fValencia==NULL)//Lectura fichero de Valencia
@@ -724,7 +732,8 @@ int main()
 			palabra10=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fValencia);	
 	}
 	
 	fExtremadura=fopen("GeneracionExtr2.csv","r");
@@ -784,7 +793,8 @@ int main()
 			palabra11=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fExtremadura);	
 	}
 	fGalicia=fopen("GeneracionGal2.csv","r");
 	if(fGalicia==NULL)//Lectura fichero de Galicia
@@ -843,7 +853,8 @@ int main()
 			palabra12=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fGalicia);	
 	}
 	
 	fBaleares=fopen("GeneracionIslasBa2.csv","r");
@@ -903,7 +914,8 @@ int main()
 			palabra13=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fBaleares);	
 	}
 	fCanarias=fopen("GeneracionIslasCa2.csv","r");
 	if(fCanarias==NULL)//Lectura fichero de las Islas Baleares
@@ -962,7 +974,8 @@ int main()
 			palabra14=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fCanarias);	
 	}
 	fLarioja=fopen("Generacion2LaRioja.csv","r");
 	if(fLarioja==NULL)//Lectura fichero de La Rioja
@@ -1017,7 +1030,8 @@ int main()
 			palabra15=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fLarioja);	
 	}
 	
 	fMelilla=fopen("GeneracionMelilla2.csv","r");
@@ -1064,6 +1078,7 @@ int main()
 			i=0;
 			}
 		}
+		fclose(fMelilla);
 	}
 	
 	fMurcia=fopen("Generacion2Murc.csv","r");
@@ -1124,7 +1139,8 @@ int main()
 			palabra17=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fMurcia);	
 	}
 	
 	fNavarra=fopen("GeneracionNava2.csv","r");
@@ -1180,7 +1196,8 @@ int main()
 			palabra18=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fNavarra);	
 	}
 	
 	fPvasco=fopen("GeneracionPaisVasco2.csv","r");
@@ -1241,7 +1258,8 @@ int main()
 			palabra19=0;
 			i=0;
 			}
-		}	
+		}
+		fclose(fPvasco);	
 	}
 	
 	
